@@ -45,3 +45,29 @@ def no_nut_recipe(filepath):
         
         Returns: A list of Recipe's with no nuts in the recipe.
     """
+    
+def get_recipe(ingredients):
+    """
+    Checks the given ingredients by user against stored recipes to either 
+    return matching recipe or missing ingredients.
+    
+    Args:
+        ingredients (str): the ingredients the user has
+    
+    Returns:
+        result (str): a food name or missing ingredients 
+    """
+    return
+
+def cuisine(nation, foods):
+    """
+    Filters through given dataframe of foods and returns new dataframe
+    containing foods from a user selcted nation.
+    
+    Args: 
+        nation(str): name of a given nation
+        foods(DataFrame): contains all 
+    Returns:
+        choice (DataFrame): contains the food opinions from a country 
+    """
+    return
