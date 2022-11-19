@@ -34,7 +34,7 @@ returns the specified data that was previously written in the specified text
 file and the pandas file provided. 
 
     """
-def match(filepath, my_ing): 
+def match(filepath, ingredients): 
     """
     Checks if the user's ingredients satisfy any of the recipes in the 
     textfile by implementing a set intersection. If not, it returns the 
@@ -42,8 +42,8 @@ def match(filepath, my_ing):
     textfile, through a symmetric difference.
     
     Args: 
-        filepath (string or set? of strings) : stores set of recipes 
-        my_ing (set of strings) : contains ingredients user has 
+        filepath (str) : stores set of recipes 
+        ingredients (set of strings) : contains ingredients user has 
         
     Returns: 
         Match (set of strings): Recipe(s) a user has the correct ingredients for 
