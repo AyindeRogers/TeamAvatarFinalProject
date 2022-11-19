@@ -113,10 +113,11 @@ def parse_args(arglist):
     """ Parse command-line arguments.
     
     Expect one mandatory arguments:
-        - filepath (str): path to file containing recipes. 
+        - filepath (str): path to file containing recipes.
+        - ingredients (set of strings): set of strings of ingredients.
     
     Expect the following optional arguments:    
-        - 
+        - nation (str): recipe cuisine/the nation it comes from.
         
     Args:
         arglist (list of str): arguments from the command line.
