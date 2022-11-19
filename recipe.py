@@ -59,6 +59,15 @@ def get_recipe(ingredients):
     """
     return
 
+def limited_ingr(filepath):
+    """Finds recipes with less than 5 ingredients and provides them to user. 
+    Args:
+        filepath (str): file containing recipes.  
+                 
+    Returns:
+        List of recipes with less than 5 ingredients.
+    """
+    
 def cuisine(nation, foods):
     """
     Filters through given dataframe of foods and returns new dataframe
@@ -71,3 +80,19 @@ def cuisine(nation, foods):
         choice (DataFrame): contains the food opinions from a country 
     """
     return
+
+def parse_args(arglist):
+    """ Parse command-line arguments.
+    
+    Expect one mandatory arguments:
+        - filepath (str): path to file containing recipes. 
+    
+    Expect the following optional arguments:    
+        - 
+        
+    Args:
+        arglist (list of str): arguments from the command line.
+    
+    Returns:
+        namespace: the parsed arguments, as namespace.
+    """
