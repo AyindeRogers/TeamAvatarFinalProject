@@ -4,7 +4,6 @@ if __name__ == "__main__":
     except ValueError as a:
         sys.exit(str(a))
 
-
 def __repr__():
 	"""Produce a formal list representation of the object ingredients.
 
@@ -77,7 +76,7 @@ def get_recipe(ingredients):
     return matching recipe or missing ingredients.
     
     Args:
-        ingredients (str): the ingredients the user has
+        ingredients (set of strings): the ingredients the user has
     
     Returns:
         result (str): a food name or missing ingredients 
@@ -100,7 +99,7 @@ def cuisine(nation, foods):
     
     Args: 
         nation(str): name of a given nation
-        foods(DataFrame): contains all 
+        foods(DataFrame): contains all the food opinions
     Returns:
         choice (DataFrame): contains the food opinions from a country 
     """
@@ -110,10 +109,11 @@ def parse_args(arglist):
     """ Parse command-line arguments.
     
     Expect one mandatory arguments:
-        - filepath (str): path to file containing recipes. 
+        - filepath (str): path to file containing recipes.
+        - ingredients (set of strings): set of strings of ingredients.
     
     Expect the following optional arguments:    
-        - 
+        - nation (str): recipe cuisine/the nation it comes from.
         
     Args:
         arglist (list of str): arguments from the command line.
