@@ -3,9 +3,6 @@ if __name__ == "__main__":
         args = parse_args(sys.argv[1:])
     except ValueError as a:
         sys.exit(str(a))
-    main(args.filepath, args.my_ing, args.cook)
-
-
 
 
 def __repr__():
