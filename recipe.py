@@ -55,19 +55,22 @@ def match(filepath, ingredients):
 def find_nuts(filepath):
     """
     Iterates through the list and finds recipes with nuts. Used as a key 
-    function definition for no_nut_recipes function
+    function definition for no_nut_recipes function (sequence unpacking)
     
     Args: filepath (str) - Filepath in which the recipe's are
     
     Returns: A boolean value of whether the indexed recipe has nuts in it, or
     not
     """
-def no_nut_recipe(filepath):
-    """ Returns a list of recipe's with no nuts in them
+def sorted_recipes(filepath):
+    """
+    Returns a sorted list of recipes with the fewest to most ingredients in a 
+    recipe
+    (custom key sorting)
     
-        Args: filepath (str) - Filepath in which the recipe's are
-        
-        Returns: A list of Recipe's with no nuts in the recipe.
+    Args: filepath (str) - Filepath in which the recipe's are
+    
+    Returns: A list of recipes with fewest to most ingredients.
     """
     
 def get_recipe(ingredients):
