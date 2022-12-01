@@ -55,7 +55,7 @@ def match(filepath, ingredients):
 def find_nuts(filepath):
     """
     Iterates through the list and finds recipes with nuts. Used as a key 
-    function definition for no_nut_recipes function (sequence unpacking)
+    function definition for (sequence unpacking)
     
     Args: filepath (str) - Filepath in which the recipe's are
     
