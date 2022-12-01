@@ -75,14 +75,8 @@ def sorted_recipes(filepath):
     
 def get_recipe(ingredients):
     """
-    Checks the given ingredients by user against stored recipes to either 
-    return matching recipe or missing ingredients.
-    
-    Args:
-        ingredients (set of strings): the ingredients the user has
-    
-    Returns:
-        result (str): a food name or missing ingredients 
+    Creates a data visual of common ingredients in recipes.
+    (Used if user's ingredients don't match a food in files)
     """
     return
 
