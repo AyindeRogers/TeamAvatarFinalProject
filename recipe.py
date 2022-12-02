@@ -52,7 +52,7 @@ def match(filepath, ingredients):
     """
 
 
-def find_nuts(filepath):
+def allergy(filepath):
     """
     Iterates through the list and finds recipes with nuts. Used as a key 
     function definition for (sequence unpacking)
@@ -62,10 +62,10 @@ def find_nuts(filepath):
     Returns: A boolean value of whether the indexed recipe has nuts in it, or
     not
     """
+    
 def sorted_recipes(filepath):
     """
-    Returns a sorted list of recipes with the fewest to most ingredients in a 
-    recipe
+    Returns a sorted list of recipes with the fewest to most ingredients.
     (custom key sorting)
     
     Args: filepath (str) - Filepath in which the recipe's are
@@ -73,10 +73,10 @@ def sorted_recipes(filepath):
     Returns: A list of recipes with fewest to most ingredients.
     """
     
-def get_recipe(ingredients):
+def get_data(filepath):
     """
-    Creates a data visual of common ingredients in recipes.
-    (Used if user's ingredients don't match a food in files)
+    Creates a data visual of most difficult recipes to make by Region,
+    and the longest recipes to make by region
     """
     return
 
@@ -92,7 +92,7 @@ def limited_ingr(filepath):
 def cuisine(nation, foods):
     """
     Filters through given dataframe of foods and returns new dataframe
-    containing foods from a user selcted nation.
+    containing foods from a user selcted nati on.
     
     Args: 
         nation(str): name of a given nation
