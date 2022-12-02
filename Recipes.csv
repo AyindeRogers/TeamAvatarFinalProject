@@ -1,0 +1,52 @@
+Recipes
+Dish,Region,Ingredients,Steps,Ingredients Count,Minutes 
+Arepas,South America,"water,salt,white cornmeal,vegetable oil",6,5,30
+Cheese Bread,South America,"olive oil,water, milk,salt,tapioca flour,garlic,cheese,eggs ",6,9,40
+Fried Sweet Bananas,South America,"bananas,white sugar,cinnamon,butter ",3,5,15
+Flan,South America,"sugar,water,eggs,sugar,salt,milk,whipping cream,vanilla extract ",10,8,300
+Brazilian Acai,South America,"frozen açaí puree,bananas,sugar,passion fruit puree, granola",3,5,5
+Ceviche,South America,"shrimp,limes,tomatoes,red onions,cilantro,jalapeno,salt,pepper,avocado",6,9,500
+Churros,South America,"flour,salt,baking powder,unsalted butter,water,vegetable oil",10,4,20
+Tamales,South America,"pork shoulder,water,sea salt,chile sauce,corn husks,tamale masa",7,5,270
+Cinnamon Cookies,South America,"butter,sugar,ground cinnamon,salt,vanilla extract,flour",10,6,30
+Quinoa,South America,"quinoa, water",3,2,15
+Lasagna,European,"cheese,noodles,beef,pepper,tomato,wine,oregano,salt ",5,8,195
+Pizza,European,"water,yeast,flour,oil,salt,cheese,sauce,basil",6,8,45
+Greek Omelet,European,"tomato,olives,oregano,eggs,oil,pepper,oregano",3,7,30
+Parmigiana,European,"chicken,breadcrumbs,parmesan cheese,garlic,parsley,oil,eggs",4,7,90
+Baked Ziti,European,"pasta,oil,sausage,onion,garlic,tomatoes,cheese,salt",5,8,60
+Tortellini,European,"tortellini,sausage,tomato sauce,heavy cream,onion,garlic,spinach",3,7,110
+Jaegar Schnitzel,European,"pork,oil,eggs,breadcrumbs,mushrooms,noodles",2,6,40
+Wienerschnitzel,European,"Veal,flour,eggs,cheese,milk,parsley,salt,pepper,nutmeg,lemon",12,10,30
+Kofta,European,"bread,lamb,egg,parsley,garlic,cumin,mint,allspices",7,8,60
+Haydari,European,"yogurt,garlic,cream cheese,dill",2,5,495
+Jollof Rice,African,"rice,tomatoes,pepper,oil,salt,curry powder,thyme,ginger",3,8,80
+Shakshuka,African,"tomatoes,onion,eggs,garlic,oil,paprika,pepper,cumin",3,7,45
+Peri Peri Chicken,African,"chicken,paprika,chili powder,lemon juice,garlic,ginger,salt",3,7,180
+Key Sir Alicha,African,"oil,onion,salt,garlic,beets,salt,potatoes",2,7,60
+South African Yellow Rice,African,"rice,salt,turmeric,sugar,cinnamon,raisins,butter",1,7,45
+Chicken Tagine,African,"chicken,flour,broth,honey,olives,oil,lemon,ginger,cinnamon",7,9,60
+Bunny Chow,African,"chicken,oil,chickpeas,potatoes,paprika,garlic,ginger,onion",2,8,75
+Bobotie,African,"bread,onion,butter,beef,curry paste,cloves,milk,eggs",7,8,110
+Ugali,African,"cornmeal,water,salt",5,3,30
+Efo Riro,African,"spinach,beef,oil,tomatoes,pepper,onion,broth,salt,black pepper",4,9,30
+Black chicken & red date soup,East Asian,"chicken,scallops, jujubes, goji berries",8,4,90
+Soy Garlic Chicken Wings,East Asian,"chicken wings,soy sauce,brown sugar",6,3,5
+Pork Ribs,East Asian,"pork ribs,Shaoxing wine,dark soya sauce,rice vinegar",5,4,40
+Napa Cabbage Steaks,East Asian,"napa cabbage,oil,soy sauce,agave syrup,paprika",4,5,40
+Gochujang Squash,East Asian,"butternut squash,gochujang sauce,sesame oil",7,3,30
+Cold cucumber salad,East Asian,"cucumbers,lao gan ma chili oil,chinkiang vinegar",2,3,10
+Curried Spicy Tuna Dip,East Asian,"vegetable oil,sambal,can tuna,coconut milk,sugar",2,5,20
+pandan rice,East Asian,"long-grain rice,water,coconut cream",1,3,10
+Five-Spice Nuts,East Asian,"vegetable oil,anise pods,cinnamon stick,cashew nuts",5,4,30
+Asian Peanut Noodles,East Asian,"spaghetti,peanut butter,green,crushed peanuts",3,3,55
+Southern Cheese Grits,North American,"grits,water,milk,bouillon,butter,cheese",5,6,50
+Poutine,North American,"french fries,gravy,cheese curds",4,3,30
+Creamed Spinach,North American,"spinach,garlic,milk,butter,onion",4,5,35
+Pigs in a Blanket,North American,"crescent rolls,mini cocktail wieners,butter",3,3,30
+Ambrosia Salad,North American,"marshmallow,pineapple,coconut,sour cream,mandarin orange",1,5,115
+Bannock,North American,"flour,salt,butter,baking powder,milk",4,4,40
+Peanut Butter and Jelly Sandwich,North American,"peanut butter,fruit preserve,bread",3,3,5
+Cornbread,North American,"buttermilk,cornmeal,baking powder,eggs",3,4,30
+Cobb Salad,North American,"chicken,egg,bacon,lettuce,tomato,avocado",3,6,30
+Sweet Potato Pie,North American,"sweet potato,eggs,pie crust,cinnamon,cream,butter,sugar",6,7,115
