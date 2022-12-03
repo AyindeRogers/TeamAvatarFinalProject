@@ -23,11 +23,10 @@ def __repr__(self):
         ingr_str + ", " + x   
     return "Food {} Ingredients {}".format(self.dish, ingr_str)
 
-"if ingr_str != 0:"
-"ingr_str"
-"  else:"
-
-"EX.'Person(' + self.name + ',' + str(self.age) + ')'"
+#"if ingr_str != 0:"
+#"ingr_str"
+#"  else:"
+#"EX.'Person(' + self.name + ',' + str(self.age) + ')'"
     
 def read_function(filepath):
 	""" 
