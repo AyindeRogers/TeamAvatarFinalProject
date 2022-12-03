@@ -17,7 +17,18 @@ This representation is suitable for debugging and can be used as code
 Returns:
 Lst: the list representation
 """
+def __repr__(self):
+    ingr_str = " "
+    for x in self.ingredients:
+        ingr_str + ", " + x   
+    return "Food {} Ingredients {}".format(self.dish, ingr_str)
 
+"if ingr_str != 0:"
+"ingr_str"
+"  else:"
+
+"EX.'Person(' + self.name + ',' + str(self.age) + ')'"
+    
 def read_function(filepath):
 	""" 
  	Uses a with statement to open a file then a read function for a text file 
@@ -34,6 +45,12 @@ returns the specified data that was previously written in the specified text
 file and the pandas file provided. 
 
     """
+def read_function(filepath):
+    pd.read_csv('data.csv')  
+    with open('Food.csv') as file:
+        ingredients = 
+    return 
+
 def match(filepath, ingredients): 
     """
     Checks if the user's ingredients satisfy any of the recipes in the 
