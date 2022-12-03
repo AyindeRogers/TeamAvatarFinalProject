@@ -17,7 +17,6 @@ This representation is suitable for debugging and can be used as code
 Returns:
 Lst: the list representation
 """
-def __repr__(self):
     ingr_str = " "
     for x in self.ingredients:
         ingr_str + ", " + x   
@@ -44,7 +43,6 @@ returns the specified data that was previously written in the specified text
 file and the pandas file provided. 
 
     """
-def read_function(filepath):
     pd.read_csv('data.csv')  
     with open('Food.csv') as file:
         ingredients = 
