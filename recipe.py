@@ -148,34 +148,6 @@ class Recipe:
             choice (DataFrame): contains the food opinions from a country 
         """
         return
-
-def parse_args(arglist):
-    """ Parse command-line arguments.
-    
-    Expect one mandatory arguments:
-        - filepath (str): path to file containing recipes.
-        - allergy (str): food allergen.
-        - ingredients (set of strings): set of strings of ingredients.
-    
-    Expect the following optional arguments:
-        -c, --ingr_lim: if specified, include recipes with limited number of ingredients.
-        -v, --nation: if specified, it should be cuisine/the nation the recipe comes from.
-        
-    Args:
-        arglist (list of str): arguments from the command line.
-    
-    Returns:
-        namespace: the parsed arguments, as namespace.
-    """
-    parser = ArgumentParser()
-    parser.add_argument("filepath", help="path to recipe and ingredients text file")
-    parser.add_argument("allergy", help="allergens")
-    parser.add_argument("ingredients", help="ingredients set of strings")
-
-    parser.add_argument("-c", "--ingr_lim", action="store_true",
-                        help="add an ingredient limit")
-    parser.add_argument("-v", "--nation", help="region cuisine is from")
-    return parser.parse_args(arglist)
     
 def parse_args(arglist):
     """ Parse command-line arguments.
