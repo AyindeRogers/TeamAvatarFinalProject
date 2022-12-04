@@ -152,22 +152,6 @@ def limited_ingr(ingr_lim=5):
         """
         return
 
-    def parse_args(arglist):
-        """ Parse command-line arguments.
-        
-        Expect one mandatory arguments:
-            - filepath (str): path to file containing recipes.
-            - ingredients (set of strings): set of strings of ingredients.
-        
-        Expect the following optional arguments:    
-            - nation (str): recipe cuisine/the nation it comes from.
-            
-        Args:
-            arglist (list of str): arguments from the command line.
-        
-        Returns:
-            namespace: the parsed arguments, as namespace.
-        """
 def parse_args(arglist):
     """ Parse command-line arguments.
     
@@ -196,3 +180,19 @@ def parse_args(arglist):
     parser.add_argument("-v", "--nation", help="region cuisine is from")
     return parser.parse_args(arglist)
     
+def parse_args(arglist):
+    """ Parse command-line arguments.
+    
+    Expect one mandatory arguments:
+        - filepath (str): path to file containing recipes.
+
+    Args:
+        arglist (list of str): arguments from the command line.
+    
+    Returns:
+        namespace: the parsed arguments, as namespace.
+    """
+    parser = ArgumentParser()
+    parser.add_argument("filepath", help="path to recipe and ingredients text file")
+    
+    return parser.parse_args(arglist)
