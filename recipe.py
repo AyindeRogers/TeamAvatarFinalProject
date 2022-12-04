@@ -163,6 +163,11 @@ def main(filepath, recipe, ingredients):
     region = input("""Pick your desired region : South America, Africa,
                         Middle East, Europe, Asia""")  
     print("Your region is" + region)
+    
+    foods = input("""What ingredients do you have?""")
+    
+    print(f"You have {foods}")
+    
    
 def parse_args(arglist):
     """ Parse command-line arguments.
