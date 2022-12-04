@@ -122,18 +122,25 @@ class Recipe:
                 None
         return limited_i
         
-    def cuisine(nation, foods):
-        """
-        Filters through given dataframe of foods and returns new dataframe
-        containing foods from a user selcted nati on.
+def cuisine(nation, ingredients):
+    """
+    Filters through given dataframe of foods and returns new dataframe
+    containing foods from a user selcted nati on.
         
-        Args: 
+    Args: 
             nation(str): name of a given nation
             foods(DataFrame): contains all the food opinions
         Returns:
             choice (DataFrame): contains the food opinions from a country 
-        """
-        return
+    """
+    df = pd.read_csv("Recipes.csv")
+    nationdf = df[df["Region"] == nation]
+    for i in nationdf["Ingredients"]:
+        if i == ingredients:
+            df1 = nationdf[(nationdf["Ingredients"] == ingredients)].reset_index(drop = True)
+            num = df1.loc[0]["Dish"]
+            return f"With your ingredients, you can make {num}!"
+    
     
     
 def main(filepath, recipe, ingredients):
@@ -145,6 +152,14 @@ def main(filepath, recipe, ingredients):
     nation = input("""Pick your desired region : South America, Africa,
                         Middle East, Europe, Asia""")  
     print("Your region is" + nation)
+    
+    foods = input("What ingredients do you have?")
+    
+    print(f"You have {foods}")
+    
+    print(cuisine(nation, foods))
+    
+    
     
    
 def parse_args(arglist):
