@@ -153,9 +153,12 @@ def main(filepath, recipe, ingredients):
                recipelist.append(Recipe(recipe, ingredients))
  
 region = input("""Pick your desired region : South America, Africa,
-                    Middle East, Europe, Asia""")  
+                    North American, Europe, Asia""")  
 print("Your region is" + region)
-   
+
+
+
+    
 def parse_args(arglist):
     """ Parse command-line arguments.
     
