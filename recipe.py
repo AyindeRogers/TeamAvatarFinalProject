@@ -1,6 +1,8 @@
 import matplotlib.pyplot as plt
 import seaborn as sns
 import pandas as pd
+import sys
+from argparse import ArgumentParser
 
 
 if __name__ == "__main__":
@@ -95,16 +97,16 @@ class Recipe:
         Creates a data visual of most difficult recipes to make by Region,
         and the longest recipes to make by region
         """
-        df = pd.read_csv("Recipes.csv")
+        #df = pd.read_csv("Recipes.csv")
         #To show what regions have the most complicated dishes
-        df.plot.bar(x = "Region", y = "Steps")
-        plt.show()
+        #df.plot.bar(x = "Region", y = "Steps")
+        #plt.show()
         #To show the distrubution of minutes
-        df.hist("Minutes")
-        plt.show()
+        #df.hist("Minutes")
+        #plt.show()
         #To show if there is any relationship between Ingredients and Cook time
-        sns.lmplot(x = "Ingredients Count", y = "Minutes", data = df)
-        plt.show()
+        #sns.lmplot(x = "Ingredients Count", y = "Minutes", data = df)
+        #plt.show()
         
 
     def limited_ingr(filepath):
