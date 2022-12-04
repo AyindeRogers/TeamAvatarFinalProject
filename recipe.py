@@ -147,7 +147,6 @@ class Recipe:
     
     
 def main(filepath, recipe, ingredients):
-<<<<<<< HEAD
     recipelist = []
     with open ("Recipe.txt", "r") as f :
         for line in f:
@@ -157,20 +156,6 @@ def main(filepath, recipe, ingredients):
                         Middle East, Europe, Asia""")  
     print("Your region is" + region)
    
-=======
-       recipelist = []
-       with open ("Recipe.txt", "r") as f :
-           for line in f:
-               recipelist.append(Recipe(recipe, ingredients))
- 
-region = input("""Pick your desired region : South America, Africa,
-                    North American, Europe, Asia""")  
-print("Your region is" + region)
-
-
-
-    
->>>>>>> b419dae5ebfe2835f91671e90d388039231efa3c
 def parse_args(arglist):
     """ Parse command-line arguments.
     
