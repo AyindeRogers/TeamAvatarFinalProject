@@ -98,10 +98,7 @@ class Recipe:
         and the longest recipes to make by region
         """
         #df = pd.read_csv("Recipes.csv")
-        #To show what regions have the most complicated dishes
-        #df.plot.bar(x = "Region", y = "Steps")
-        #plt.show()
-        #To show the distrubution of minutes
+        #To show the distrubution of minutes across each Region
         #df.hist("Minutes")
         #plt.show()
         #To show if there is any relationship between Ingredients and Cook time
@@ -118,27 +115,27 @@ class Recipe:
             List of recipes with less than 5 ingredients.
         """
     
-def limited_ingr(ingr_lim=5):
-    """Finds recipes with less than 5 ingredients and provides them to user. 
-    Args:
-        filepath (str): file containing recipes.  
-        ingr_lim (int): an integer representing a limited number of ingredients.
-            Unless user specifies otherwise the default value is 5. 
-                 
-    Returns:
-        List of recipes with less than 5 ingredients.
-    """
+    def limited_ingr(ingr_lim=5):
+        """Finds recipes with less than 5 ingredients and provides them to user. 
+        Args:
+            filepath (str): file containing recipes.  
+            ingr_lim (int): an integer representing a limited number of ingredients.
+                Unless user specifies otherwise the default value is 5. 
+                    
+        Returns:
+            List of recipes with less than 5 ingredients.
+        """
 
-    with open("recipes.txt", "r", encoding="utf-8") as f:
-        limited_i = []
-        for line in f:
-            recipe,ingredients = line.split("=")
-        if len(ingredients) == ingr_lim:
-            limited_i.append(recipe)
-        else:
-            None
-    return limited_i
-    
+        with open("recipes.txt", "r", encoding="utf-8") as f:
+            limited_i = []
+            for line in f:
+                recipe,ingredients = line.split("=")
+            if len(ingredients) == ingr_lim:
+                limited_i.append(recipe)
+            else:
+                None
+        return limited_i
+        
     def cuisine(nation, foods):
         """
         Filters through given dataframe of foods and returns new dataframe
