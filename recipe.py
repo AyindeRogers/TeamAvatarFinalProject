@@ -144,7 +144,7 @@ class Recipe:
             choice (DataFrame): contains the food opinions from a country 
         """
         
-        df = pd.read_csv("foodie.csv")
+        df = pd.read_csv("Recipe.csv")
         nationdf = df[df["Region"] == nation]
         for i in nationdf["Ingredients"]:
             if i == ingredients:
