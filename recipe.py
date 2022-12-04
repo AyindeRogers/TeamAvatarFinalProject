@@ -5,6 +5,26 @@ import sys
 from argparse import ArgumentParser
 
 
+class Recipe: 
+    def __init__(self, name, ingredients):
+        self.name = name
+        self.ingredients = ingredients.split(",")
+    def __str__(self):
+        return f"{self.ingredients}"
+    def __repr__():
+        """Produce a formal list representation of the object ingredients.
+
+    Args:
+    The formal representation will have the form “**Food**insert our ingredients**”
+    Where ing1, ing2, ing3, ing4…..  are the components of this food.
+
+    This representation is suitable for debugging and can be used as code
+        to recreate this object.
+
+    Returns:
+    Lst: the list representation
+    """
+        return
 
         
 def allergies(recipelist, allergy):
@@ -42,28 +62,8 @@ def get_data2(df):
         sns.lmplot(x = "Ingredients Count", y = "Minutes", data = df)
         plt.show()
 
-class Recipe: 
-    def __init__(self, name, ingredients):
-        self.name = name
-        self.ingredients = ingredients.split(",")
-    def __str__(self):
-        return f"{self.ingredients}"
-    def __repr__():
-        """Produce a formal list representation of the object ingredients.
-
-    Args:
-    The formal representation will have the form “**Food**insert our ingredients**”
-    Where ing1, ing2, ing3, ing4…..  are the components of this food.
-
-    This representation is suitable for debugging and can be used as code
-        to recreate this object.
-
-    Returns:
-    Lst: the list representation
-    """
-
-    def read_function(filepath):
-        """ 
+def read_function(filepath):
+    """ 
         Uses a with statement to open a file then a read function for a text file 
     that has the food with ingredients along with a pandas file.
 
@@ -78,8 +78,8 @@ class Recipe:
     file and the pandas file provided. 
 
         """
-    def match(filepath, ingredients): 
-        """
+def match(filepath, ingredients): 
+    """
         Checks if the user's ingredients satisfy any of the recipes in the 
         textfile by implementing a set intersection. If not, it returns the 
         ingredients the user needs to complete all of the recipes stored in the
@@ -93,21 +93,21 @@ class Recipe:
             Match (set of strings): Recipe(s) a user has the correct ingredients for 
             Incomplete (set of strings): Ingredients a user needs to complete all 
             of the recipes stored in the filepath. 
-        """
+    """
         
-    def sorted_recipes(filepath):
-        """
+def sorted_recipes(filepath):
+    """
         Returns a sorted list of recipes with the fewest to most ingredients.
         (custom key sorting)
         
         Args: filepath (str) - Filepath in which the recipe's are
         
         Returns: A list of recipes with fewest to most ingredients.
-        """
+    """
           
     
-    def limited_ingr(ingr_lim=5):
-        """Finds recipes with less than 5 ingredients and provides them to user. 
+def limited_ingr(ingr_lim=5):
+    """Finds recipes with less than 5 ingredients and provides them to user. 
         Args:
             filepath (str): file containing recipes.  
             ingr_lim (int): an integer representing a limited number of ingredients.
@@ -115,17 +115,17 @@ class Recipe:
                     
         Returns:
             List of recipes with less than 5 ingredients.
-        """
+    """
 
-        with open("recipes.txt", "r", encoding="utf-8") as f:
-            limited_i = []
-            for line in f:
-                recipe,ingredients = line.split("=")
-            if len(ingredients) == ingr_lim:
-                limited_i.append(recipe)
-            else:
-                None
-        return limited_i
+    with open("recipes.txt", "r", encoding="utf-8") as f:
+        limited_i = []
+        for line in f:
+            recipe,ingredients = line.split("=")
+        if len(ingredients) == ingr_lim:
+            limited_i.append(recipe)
+        else:
+            None
+    return limited_i
         
 def cuisine(nation, ingredients):
     """
@@ -191,6 +191,7 @@ def parse_args(arglist):
     parser.add_argument("filepath", type = str, help="path to recipe and ingredients text file")
     
     return parser.parse_args(arglist)
+
 
 if __name__ == "__main__":
     main("recipes.txt")
