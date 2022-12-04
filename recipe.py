@@ -17,10 +17,10 @@ This representation is suitable for debugging and can be used as code
 Returns:
 Lst: the list representation
 """
-    ingr_str = " "
-    for x in self.ingredients:
-        ingr_str + ", " + x   
-    return "Food {} Ingredients {}".format(self.dish, ingr_str)
+	#ingr_str = " "
+    #for x in self.ingredients:
+      #  ingr_str + ", " + x   
+   # return "Food {} Ingredients {}".format(self.dish, ingr_str)
 
 #"if ingr_str != 0:"
 #"ingr_str"
@@ -43,10 +43,10 @@ returns the specified data that was previously written in the specified text
 file and the pandas file provided. 
 
     """
-    pd.read_csv('data.csv')  
-    with open('Food.csv') as file:
-        ingredients = 
-    return 
+#    pd.read_csv('data.csv')  
+ #   with open('Food.csv') as file:
+ #       ingredients = 
+  #  return 
 
 def match(filepath, ingredients): 
     """
