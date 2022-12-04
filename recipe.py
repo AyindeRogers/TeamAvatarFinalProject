@@ -5,11 +5,7 @@ import sys
 from argparse import ArgumentParser
 
 
-if __name__ == "__main__":
-    try: 
-        args = parse_args(sys.argv[1:])
-    except ValueError as a:
-        sys.exit(str(a))
+
         
 def allergy(recipelist, allergy):
     """
@@ -151,6 +147,18 @@ def limited_ingr(ingr_lim=5):
             choice (DataFrame): contains the food opinions from a country 
         """
         return
+    
+    
+def main(filepath, recipe, ingredients):
+       recipelist = []
+       with open ("Recipe.txt", "r") as f :
+           for line in f:
+               recipelist.append(Recipe(recipe, ingredients))
+ 
+region = input("""Pick your desired region : South America, Africa,
+                    Middle East, Europe, Asia""")  
+print("Your region is" + region)
+
 
 def parse_args(arglist):
     """ Parse command-line arguments.
@@ -196,3 +204,9 @@ def parse_args(arglist):
     parser.add_argument("filepath", help="path to recipe and ingredients text file")
     
     return parser.parse_args(arglist)
+
+if __name__ == "__main__":
+    try: 
+        args = parse_args(sys.argv[1:])
+    except ValueError as a:
+        sys.exit(str(a))
