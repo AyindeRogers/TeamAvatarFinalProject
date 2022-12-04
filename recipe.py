@@ -7,7 +7,7 @@ from argparse import ArgumentParser
 
 
         
-def allergy(recipelist, allergy):
+def allergies(recipelist, allergy):
     """
         Iterates through the list and finds recipes with nuts. Used as a key 
         function definition for (sequence unpacking)
@@ -17,20 +17,37 @@ def allergy(recipelist, allergy):
         Returns: A boolean value of whether the indexed recipe has nuts in it, or
         not
     """
-    #no_allergy=[]
-    #for r in recipelist:
-        #recipe,ingredients = [r.recipe, r.ingredients]
-        #if allergy not in ingredients:
-            #no_allergy.append(recipe)
-        #else:
-            #continue
-    #return no_allergy
+    no_allergy=[]
+    for r in recipelist:
+        recipe,ingredients = [r.name, r.ingredients]
+        if allergy not in ingredients:
+            no_allergy.append(recipe)
+        else:
+            continue
+    return no_allergy
+def get_data1(df):
+        """
+        Creates a data visual of number of minutes per each dish.
+        """
+        
+        #To show the distrubution of minutes across each Region
+        df.hist("Minutes")
+        plt.show()
+        
+        
+def get_data2(df):
+        """ Creates a data visual representation of the relationship between
+        Number of ingredients and the time to cook the overall dish
+        """
+        sns.lmplot(x = "Ingredients Count", y = "Minutes", data = df)
+        plt.show()
 
 class Recipe: 
-    def __init__(self, recipe, ingredients):
-        self.recipe = recipe
-        self.ingredients = ingredients
-    
+    def __init__(self, name, ingredients):
+        self.name = name
+        self.ingredients = ingredients.split(",")
+    def __str__(self):
+        return f"{self.ingredients}"
     def __repr__():
         """Produce a formal list representation of the object ingredients.
 
@@ -87,19 +104,7 @@ class Recipe:
         
         Returns: A list of recipes with fewest to most ingredients.
         """
-        
-    def get_data(filepath):
-        """
-        Creates a data visual of most difficult recipes to make by Region,
-        and the longest recipes to make by region
-        """
-        #df = pd.read_csv("Recipes.csv")
-        #To show the distrubution of minutes across each Region
-        #df.hist("Minutes")
-        #plt.show()
-        #To show if there is any relationship between Ingredients and Cook time
-        #sns.lmplot(x = "Ingredients Count", y = "Minutes", data = df)
-        #plt.show()
+          
     
     def limited_ingr(ingr_lim=5):
         """Finds recipes with less than 5 ingredients and provides them to user. 
@@ -140,25 +145,33 @@ def cuisine(nation, ingredients):
             df1 = nationdf[(nationdf["Ingredients"] == ingredients)].reset_index(drop = True)
             num = df1.loc[0]["Dish"]
             return f"With your ingredients, you can make {num}!"
+   
     
-    
-    
-def main(filepath, recipe, ingredients):
+def main(filepath):
     recipelist = []
-    with open ("Recipe.txt", "r") as f :
+    with open (filepath) as f :
         for line in f:
-            recipelist.append(Recipe(recipe, ingredients))
+            split = line.strip().split("=")
+            name = split[0]
+            ingredients = split[1]
+            recipelist.append(Recipe(name, ingredients))
+    df = pd.read_csv("Recipes.csv")
+    # nation = input("""Pick your desired region : South America, Africa,
+    #                     Middle East, Europe, Asia""")  
+    # print("Your region is" + nation)
+
+    #foods = input("What ingredients do you have?")
+    #foods = "quinoa,water"
+    #nation = "South America"
+    #(f"You have {foods}")
+
+    #print(cuisine(nation, foods))
+    get_data1(df)
+    get_data2(df)
     
-    nation = input("""Pick your desired region : South America, Africa,
-                        Middle East, Europe, Asia""")  
-    print("Your region is" + nation)
-    
-    foods = input("What ingredients do you have?")
-    
-    print(f"You have {foods}")
-    
-    print(cuisine(nation, foods))
-    
+    allergy = input("Do you have any allergies?").lower()
+    print(allergies(recipelist, allergy))
+
     
     
    
@@ -175,12 +188,9 @@ def parse_args(arglist):
         namespace: the parsed arguments, as namespace.
     """
     parser = ArgumentParser()
-    parser.add_argument("filepath", help="path to recipe and ingredients text file")
+    parser.add_argument("filepath", type = str, help="path to recipe and ingredients text file")
     
     return parser.parse_args(arglist)
 
 if __name__ == "__main__":
-    try: 
-        args = parse_args(sys.argv[1:])
-    except ValueError as a:
-        sys.exit(str(a))
+    main("recipes.txt")
