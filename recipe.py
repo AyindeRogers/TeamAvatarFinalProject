@@ -100,16 +100,6 @@ class Recipe:
         #To show if there is any relationship between Ingredients and Cook time
         #sns.lmplot(x = "Ingredients Count", y = "Minutes", data = df)
         #plt.show()
-        
-
-    def limited_ingr(filepath):
-        """Finds recipes with less than 5 ingredients and provides them to user. 
-        Args:
-            filepath (str): file containing recipes.  
-                    
-        Returns:
-            List of recipes with less than 5 ingredients.
-        """
     
     def limited_ingr(ingr_lim=5):
         """Finds recipes with less than 5 ingredients and provides them to user. 
@@ -132,7 +122,7 @@ class Recipe:
                 None
         return limited_i
         
-    def cuisine(nation, ingredients):
+    def cuisine(nation, foods):
         """
         Filters through given dataframe of foods and returns new dataframe
         containing foods from a user selcted nati on.
@@ -143,15 +133,7 @@ class Recipe:
         Returns:
             choice (DataFrame): contains the food opinions from a country 
         """
-        
-        df = pd.read_csv("Recipe.csv")
-        nationdf = df[df["Region"] == nation]
-        for i in nationdf["Ingredients"]:
-            if i == ingredients:
-                df1 = nationdf[(nationdf["Ingredients"] == ingredients)].reset_index(drop = True)
-                num = df1.loc[0]["Dish"]
-                return f"With your ingredients, you can make {num}!"
-    
+        return
     
     
 def main(filepath, recipe, ingredients):
@@ -163,6 +145,7 @@ def main(filepath, recipe, ingredients):
     region = input("""Pick your desired region : South America, Africa,
                         Middle East, Europe, Asia""")  
     print("Your region is" + region)
+    
    
 def parse_args(arglist):
     """ Parse command-line arguments.
