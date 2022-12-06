@@ -187,29 +187,36 @@ def main(filepath):
             ingredients = split[1]
             recipelist.append(Recipe(name, ingredients))
     df = pd.read_csv("Recipes.csv")
-    user_ing = input("What ingredients do you have?").lower()
-    print(match(recipelist,user_ing)) 
-    # nation = input("""Pick your desired region : South America, Africa,
-    #                     Middle East, Europe, Asia""")  
-    # print("Your region is" + nation)
+    question = input("""Welcome to Cookbook!
+                     Choose one of the following options:
+                     1. Find a dish based on the ingredients you have at home
+                     2. Easy to make recipes
+                     3. Cultural dishes
+                     4. Cool food data
+                     5. Allergy free food""")
+    if question == 1:
+        user_ing = input("What ingredients do you have?").lower() 
+        print(match(recipelist,user_ing)) 
+    if question == 2:
+        print(f"Dishes that take the fewest steps: {sorted_steps(df)}")
+        print(f"Dishes that take the shortest amount of time: {sorted_time(df)}")
+    if question == 3:
+        nation = input("What region would you like to see? (European, African, South America, North American, Asian)")
+        print(cuisine(nation, df))
+    if question == 4:
+        choice = """What kind of data do you want to see?
+                    1. Distribution of prep time of our various recipes
+                    2. Relationship between minutes of prep time and number of ingredients"""
+        if choice == 1:
+            get_data1(df)
+        elif choice == 2:
+            get_data2(df)
+    if question == 5:
+        allergy = input("What allergy do you have?").lower()
+        print(allergies(recipelist, allergy)) 
 
-    #foods = input("What ingredients do you have?")
-    #foods = "quinoa,water"
-    #nation = "South America"
-    #(f"You have {foods}")
-
-    #print(cuisine(nation, foods))
-    get_data1(df)
-    get_data2(df)
-    
-    allergy = input("Do you have any allergies?").lower()
-    print(allergies(recipelist, allergy))
-    
     
 
-    
-    
-   
 def parse_args(arglist):
     """ Parse command-line arguments.
     
