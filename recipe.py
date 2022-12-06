@@ -46,20 +46,22 @@ def match(recipeList, user_ing):
         
     user = user_ing.split(",")
     user_ingredients = set(user)  
-    stored=set(recipe.ingredients)
-    for recipe in recipeList: 
-        match = user_ingredients & stored
+    
+    for r in recipeList:
+        recipe,ingredients = [r.name, r.ingredients] 
+        match = user_ingredients & set(r.ingredients)
         if match and len(match) == len(user_ingredients):
-            print(f"You can make {recipe.name}")
+            print(f"You can make {r.name}")
         
         else:
             counter = 0 
-            while counter <= 5:
+            while counter == 5:
                 for line in recipeList: 
-                    print(f"""In order to make {recipe.name} = 
-                        {stored - user_ingredients}""")
-
-        
+                    print(f"""In order to make {r.name} = 
+                        {set(r.ingredients) - user_ingredients}""")
+                    counter -= 1 
+    
+    
 def allergies(recipelist, allergy):
     """
         Iterates through the list and finds recipes with nuts. Used as a key 
@@ -83,7 +85,6 @@ def get_data1(df):
         Creates a data visual of number of minutes per each dish.
         """
         
-        #To show the distrubution of minutes across each Region
         df.hist("Minutes")
         plt.show()
         
