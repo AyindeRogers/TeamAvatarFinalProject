@@ -59,7 +59,7 @@ def match(recipeList, user_ing):
                 for line in recipeList: 
                     print(f"""In order to make {r.name} = 
                         {set(r.ingredients) - user_ingredients}""")
-                    counter -= 1 
+                    counter += 1 
     
     
 def allergies(recipelist, allergy):
