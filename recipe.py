@@ -95,7 +95,7 @@ def match(filepath, ingredients):
             of the recipes stored in the filepath. 
     """
         
-def sorted_recipes(filepath):
+def sorted_steps(df):
     """
         Returns a sorted list of recipes with the fewest to most ingredients.
         (custom key sorting)
@@ -104,6 +104,22 @@ def sorted_recipes(filepath):
         
         Returns: A list of recipes with fewest to most ingredients.
     """
+    df1 = df.sort_values(["Steps"]).head()
+    stepsdf = df1[["Dish", "Ingredients", "Steps"]]
+    return(stepsdf)
+
+def sorted_time(df):
+    """
+        Returns a sorted list of recipes with the fewest to most ingredients.
+        (custom key sorting)
+        
+        Args: filepath (str) - Filepath in which the recipe's are
+        
+        Returns: A list of recipes with fewest to most ingredients.
+    """
+    df2 = df.sort_values(["Minutes "]).head()
+    timedf = df2[["Dish", "Ingredients", "Minutes "]]
+    return(timedf)
           
     
 def limited_ingr(ingr_lim=5):
@@ -127,7 +143,7 @@ def limited_ingr(ingr_lim=5):
             None
     return limited_i
         
-def cuisine(nation, ingredients):
+def cuisine(nation, df):
     """
     Filters through given dataframe of foods and returns new dataframe
     containing foods from a user selcted nati on.
@@ -138,13 +154,9 @@ def cuisine(nation, ingredients):
         Returns:
             choice (DataFrame): contains the food opinions from a country 
     """
-    df = pd.read_csv("Recipes.csv")
     nationdf = df[df["Region"] == nation]
-    for i in nationdf["Ingredients"]:
-        if i == ingredients:
-            df1 = nationdf[(nationdf["Ingredients"] == ingredients)].reset_index(drop = True)
-            num = df1.loc[0]["Dish"]
-            return f"With your ingredients, you can make {num}!"
+    newdf = nationdf[["Dish", "Ingredients"]].reset_index(drop = True)
+    return newdf
    
     
 def main(filepath):
