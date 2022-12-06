@@ -206,7 +206,7 @@ Dishes that take the shortest amount of time:
 {sorted_time(df)}""")
         
     if question == "3":
-        nation = input("""What region would you like to see? (European, African, South America, North American, Asian)
+        nation = input("""What region would you like to see? (European, African, South America, North American, East Asian)
                        """)
         print(cuisine(nation, df))
     if question == "4":
