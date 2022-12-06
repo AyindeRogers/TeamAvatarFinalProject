@@ -26,38 +26,38 @@ class Recipe:
     """
         return
     
-    def match(recipeList, user_ing): 
-        """
-            Checks if the user's ingredients satisfy any of the recipes in the 
-            textfile by implementing a set intersection. If not, it returns the 
-            ingredients the user needs to complete 5 recipes stored in the
-            textfile, through a symmetric difference.
+def match(recipeList, user_ing): 
+    """
+    Checks if the user's ingredients satisfy any of the recipes in the 
+    textfile by implementing a set intersection. If not, it returns the 
+    ingredients the user needs to complete 5 recipes stored in the
+    textfile, through a symmetric difference.
             
-            Args: 
-                recipeList (str) : stores list of recipes 
-                user (set of strings) : contains ingredients user has 
+    Args: 
+        recipeList (str) : stores list of recipes 
+        user (set of strings) : contains ingredients user has 
                 
-            Returns: 
-                Match (set of strings): Recipe(s) a user has the correct 
-                ingredients for 
-                (set of strings): Ingredients a user needs to 
-                complete 5 recipes stored in the filepath. 
-        """
+    Returns: 
+        Match (set of strings): Recipe(s) a user has the correct 
+        ingredients for 
+        (set of strings): Ingredients a user needs to 
+        complete 5 recipes stored in the filepath. 
+    """
         
-        user = user_ing.split(",")
-        user_ingredients = set(user)  
-    
-        for recipe in recipeList: 
-            match = user_ingredients & set(recipe.ingredients) 
-            if match and len(match) == len(user_ingredients):
-                print(f"You can make {recipe.name}")
-            
-            else:
-                counter = 0 
-                while counter <= 5:
-                    for line in recipeList: 
-                        print(f"""In order to make {recipe.name} = 
-                            {recipe.ingredients - user_ingredients}""")
+    user = user_ing.split(",")
+    user_ingredients = set(user)  
+    stored=set(recipe.ingredients)
+    for recipe in recipeList: 
+        match = user_ingredients & stored
+        if match and len(match) == len(user_ingredients):
+            print(f"You can make {recipe.name}")
+        
+        else:
+            counter = 0 
+            while counter <= 5:
+                for line in recipeList: 
+                    print(f"""In order to make {recipe.name} = 
+                        {stored - user_ingredients}""")
 
         
 def allergies(recipelist, allergy):
@@ -186,7 +186,8 @@ def main(filepath):
             ingredients = split[1]
             recipelist.append(Recipe(name, ingredients))
     df = pd.read_csv("Recipes.csv")
-    user_ing = input("What ingredients do you have?").lower() 
+    user_ing = input("What ingredients do you have?").lower()
+    print(match(recipelist,user_ing)) 
     # nation = input("""Pick your desired region : South America, Africa,
     #                     Middle East, Europe, Asia""")  
     # print("Your region is" + nation)
