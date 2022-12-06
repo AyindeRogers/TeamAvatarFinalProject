@@ -216,8 +216,9 @@ Dishes that take the shortest amount of time:
                     """)
         if choice == "1":
             get_data1(df)
-        elif choice == "2":
+        else:
             get_data2(df)
+        
     if question == "5":
         allergy = input("""What allergy do you have?
                         """).lower()
