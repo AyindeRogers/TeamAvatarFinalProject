@@ -136,8 +136,8 @@ def sorted_time(df):
         
         Returns: A list of recipes with fewest to most ingredients.
     """
-    df2 = df.sort_values(["Minutes "]).head()
-    timedf = df2[["Dish", "Ingredients", "Minutes "]]
+    df2 = df.sort_values(["Minutes"]).head()
+    timedf = df2[["Dish", "Ingredients", "Minutes"]]
     return(timedf)
           
     
