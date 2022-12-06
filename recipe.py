@@ -193,25 +193,26 @@ def main(filepath):
                      2. Easy to make recipes
                      3. Cultural dishes
                      4. Cool food data
-                     5. Allergy free food""")
-    if question == 1:
+                     5. Allergy free food
+                     """)
+    if question == "1":
         user_ing = input("What ingredients do you have?").lower() 
         print(match(recipelist,user_ing)) 
-    if question == 2:
+    if question == "2":
         print(f"Dishes that take the fewest steps: {sorted_steps(df)}")
         print(f"Dishes that take the shortest amount of time: {sorted_time(df)}")
-    if question == 3:
+    if question == "3":
         nation = input("What region would you like to see? (European, African, South America, North American, Asian)")
         print(cuisine(nation, df))
-    if question == 4:
+    if question == "4":
         choice = """What kind of data do you want to see?
                     1. Distribution of prep time of our various recipes
                     2. Relationship between minutes of prep time and number of ingredients"""
-        if choice == 1:
+        if choice == "1":
             get_data1(df)
-        elif choice == 2:
+        elif choice == "2":
             get_data2(df)
-    if question == 5:
+    if question == "5":
         allergy = input("What allergy do you have?").lower()
         print(allergies(recipelist, allergy)) 
 
