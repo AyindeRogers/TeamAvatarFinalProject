@@ -199,9 +199,11 @@ def main(filepath):
         user_ing = input("What ingredients do you have?").lower() 
         print(match(recipelist,user_ing)) 
     if question == "2":
-        print(f"""Dishes that take the fewest steps: {sorted_steps(df)}
+        print(f"""Dishes that take the fewest steps: 
+              {sorted_steps(df)}
               
-Dishes that take the shortest amount of time: {sorted_time(df)}""")
+Dishes that take the shortest amount of time: 
+{sorted_time(df)}""")
         
     if question == "3":
         nation = input("""What region would you like to see? (European, African, South America, North American, Asian)
