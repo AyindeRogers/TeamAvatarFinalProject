@@ -30,36 +30,37 @@ def match(recipeList, user_ing):
     """
     Checks if the user's ingredients satisfy any of the recipes in the 
     textfile by implementing a set intersection. If not, it returns the 
-    ingredients the user needs to complete 5 recipes stored in the
+    ingredients the user needs to complete the recipes stored in the
     textfile, through a symmetric difference.
             
     Args: 
         recipeList (str) : stores list of recipes 
-        user (set of strings) : contains ingredients user has 
+        user_ing (set of strings) : contains user's ingredients 
                 
     Returns: 
         Match (set of strings): Recipe(s) a user has the correct 
         ingredients for 
         (set of strings): Ingredients a user needs to 
-        complete 5 recipes stored in the filepath. 
+        complete the recipes stored in the filepath. 
     """
         
     user = user_ing.split(",")
     user_ingredients = set(user)  
     
     for r in recipeList:
+        
         recipe,ingredients = [r.name, r.ingredients] 
-        match = user_ingredients & set(r.ingredients)
-        if match and len(match) == len(user_ingredients):
+        rec_ing = set(r.ingredients)
+        match = user_ingredients & rec_ing
+        if match and len(match) == len(rec_ing):
             print(f"You can make {r.name}")
         
-        else:
-            counter = 0 
-            while counter == 5:
-                for line in recipeList: 
-                    print(f"""In order to make {r.name} = 
-                        {set(r.ingredients) - user_ingredients}""")
-                    counter += 1 
+        
+        else: 
+            print(f"""None of your ingredients match our recipes. Here are 
+            some ideas to get you started.
+            {r.name} = {rec_ing - match}""")
+               
     
     
 def allergies(recipelist, allergy):
