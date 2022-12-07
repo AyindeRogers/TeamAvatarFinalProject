@@ -185,10 +185,8 @@ Dishes that take the shortest amount of time:
                     1. Distribution of prep time of our various recipes
                     2. Relationship between minutes of prep time and number of ingredients
                     """)
-        if choice == "1":
-            get_data1(df)
-        else:
-            get_data2(df)
+        
+        get_data1(df) if choice == "1" else get_data2(df)
         
     if question == "5":
         allergy = input("""What allergy do you have?
@@ -211,9 +209,11 @@ def parse_args(arglist):
     """
     parser = ArgumentParser()
     parser.add_argument("filepath", type = str, help="path to recipe and ingredients text file")
-    
-    return parser.parse_args(arglist)
+    args = parser.parse_args(arglist)
+    return args
+
 
 
 if __name__ == "__main__":
-    main("recipes.txt")
+    filepath = sys.argv[1]
+    main(filepath)
