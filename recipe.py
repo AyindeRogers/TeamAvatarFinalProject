@@ -11,20 +11,6 @@ class Recipe:
         self.ingredients = ingredients.split(",")
     def __str__(self):
         return f"{self.ingredients}"
-    def __repr__():
-        """Produce a formal list representation of the object ingredients.
-
-    Args:
-    The formal representation will have the form “**Food**insert our ingredients**”
-    Where ing1, ing2, ing3, ing4…..  are the components of this food.
-
-    This representation is suitable for debugging and can be used as code
-        to recreate this object.
-
-    Returns:
-    Lst: the list representation
-    """
-        return
     
 def match(recipeList, user_ing): 
     """
@@ -97,22 +83,6 @@ def get_data2(df):
         sns.lmplot(x = "Ingredients Count", y = "Minutes", data = df)
         plt.show()
 
-def read_function(filepath):
-    """ 
-        Uses a with statement to open a file then a read function for a text file 
-    that has the food with ingredients along with a pandas file.
-
-    Args:
-        Text file of the foods followed by a list of ingredients along with a pandas 
-    file that has the name of the dish, country of cuisine, and number of 
-    instructions for the column names.
-
-    Returns:
-        Str: 
-    returns the specified data that was previously written in the specified text 
-    file and the pandas file provided. 
-
-        """
     
         
 def sorted_steps(df):
