@@ -85,7 +85,7 @@ def get_data2(df):
 
     
         
-def sorted_steps(df):
+def sorted(df):
     """
         Returns a sorted list of recipes with the fewest to most ingredients.
         (custom key sorting)
@@ -96,20 +96,15 @@ def sorted_steps(df):
     """
     df1 = df.sort_values(["Steps"]).head()
     stepsdf = df1[["Dish", "Ingredients", "Steps"]]
-    return(stepsdf)
-
-def sorted_time(df):
-    """
-        Returns a sorted list of recipes with the fewest to most ingredients.
-        (custom key sorting)
-        
-        Args: filepath (str) - Filepath in which the recipe's are
-        
-        Returns: A list of recipes with fewest to most ingredients.
-    """
     df2 = df.sort_values(["Minutes"]).head()
     timedf = df2[["Dish", "Ingredients", "Minutes"]]
-    return(timedf)
+    print(f"""Dishes that take the fewest steps: 
+              
+{stepsdf}
+              
+Dishes that take the shortest amount of time: 
+
+{timedf}""")
           
     
 def limited_ingr(ingr_lim=5):
@@ -170,11 +165,7 @@ def main(filepath):
         user_ing = input("What ingredients do you have?").lower() 
         print(match(recipelist,user_ing)) 
     if question == "2":
-        print(f"""Dishes that take the fewest steps: 
-              {sorted_steps(df)}
-              
-Dishes that take the shortest amount of time: 
-{sorted_time(df)}""")
+        return sorted(df)
         
     if question == "3":
         nation = input("""What region would you like to see? (European, African, South America, North American, East Asian)
