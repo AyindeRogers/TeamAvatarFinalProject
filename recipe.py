@@ -30,7 +30,7 @@ def match(recipeList, user_ing):
         complete the recipes stored in the filepath. 
     """
         
-    user = user_ing.split(",")
+    user = user_ing.strip(" ").split(",")
     user_ingredients = set(user)  
     
     for r in recipeList:
@@ -42,10 +42,10 @@ def match(recipeList, user_ing):
             print(f"You can make {r.name}")
         
         
-        else: 
-            print(f"""None of your ingredients match our recipes. Here are 
-            some ideas to get you started.
-            {r.name} = {rec_ing - match}""")
+        #else: 
+            #print(f"""None of your ingredients match our recipes. Here are 
+            #some ideas to get you started.
+            #{r.name} = {rec_ing - match}""")
                
     
     
