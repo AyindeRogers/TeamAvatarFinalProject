@@ -163,11 +163,10 @@ Dishes that take the shortest amount of time:
 {timedf}""")
           
     
-def limited_ingr(filepath, ingr_lim=5):
-    """Bella - key arguments
-    Finds recipes with 5 or specific number of ingredients and provides them to user. 
+def limited_ingr(recipelist, ingr_lim=5):
+    """Finds recipes with 5 or specific number of ingredients and provides them to user. 
     Args:
-        filepath (str): text file containing recipes.  
+        recipelist (str): list of recipes.  
         ingr_lim (int): an integer representing a limited number of ingredients.
             Unless user specifies otherwise the default value is 5. 
                  
@@ -175,12 +174,9 @@ def limited_ingr(filepath, ingr_lim=5):
         List of recipes with 5 or specified number of ingredients.
     """
     limited_i = []
-    with open(filepath, "r", encoding="utf-8") as f:
-        for line in f:
-            recipe,ingredients = line.split("=")
-            ilist = ingredients.split(",")
-            #print(ilist)
-            if len(ilist) == ingr_lim:
+    for line in recipelist:
+        recipe,ingredients = [line.name, line.ingredients]
+        if len(ingredients) == ingr_lim:
                 limited_i.append(recipe)
                 
     return limited_i
