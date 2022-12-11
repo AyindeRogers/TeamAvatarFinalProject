@@ -6,6 +6,8 @@ from argparse import ArgumentParser
 
 
 class Recipe: 
+    """Creates an instantiation of a Recipe object
+    """
     def __init__(self, name, ingredients):
         self.name = name
         self.ingredients = ingredients.split(",")
