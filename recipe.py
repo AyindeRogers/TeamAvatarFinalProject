@@ -69,9 +69,11 @@ def allergies(recipelist, allergy):
         function definition for (sequence unpacking)
         
         Args: filepath (str) - Filepath in which the recipe's are
+              allergy (str) - Allergy User input passed in from the main 
+              function.
         
-        Returns: A boolean value of whether the indexed recipe has nuts in it, or
-        not
+        Returns: A list of recipes that do not have the allergy ingredient
+        in them.
     """
     no_allergy=[]
     for r in recipelist:
@@ -84,6 +86,12 @@ def allergies(recipelist, allergy):
 def get_data1(df):
         """
         Creates a data visual of number of minutes per each dish.
+        
+        Args:
+            df - dataframe of the csv that we are working in
+            
+        Returns:
+            a graphical display of informaton
         """
         
         df.hist("Minutes")
@@ -93,6 +101,11 @@ def get_data1(df):
 def get_data2(df):
         """ Creates a data visual representation of the relationship between
         Number of ingredients and the time to cook the overall dish
+        Args:
+            df - dataframe of the csv that we are working in
+            
+        Returns:
+            a graphical display of informaton
         """
         sns.lmplot(x = "Ingredients Count", y = "Minutes", data = df)
         plt.show()
