@@ -163,7 +163,7 @@ Dishes that take the shortest amount of time:
 {timedf}""")
           
     
-def limited_ingr(recipelist, ingr_lim=5):
+def limited_ingr(recipelist, ingr_lim):
     """Finds recipes with 5 or specific number of ingredients and provides them to user. 
     Args:
         recipelist (str): list of recipes.  
@@ -238,8 +238,9 @@ def main(filepath):
             print(match(recipelist,user_ing)) 
             
         if question == "2":
-            print(sorted(df))
-            print(f"Dishes with 5 or fewer ingredients:{limited_ingr(f)}")
+            allergy = input("""How many ingredients do you want?
+                        """).lower()
+            print(f"Dishes with your selected amount of ingredients:{limited_ingr(recipelist, ingr_lim=5)}")
         
         if question == "3":
             nation = input("""What region would you like to see? (European, African, South America, North American, East Asian)
