@@ -6,18 +6,37 @@ from argparse import ArgumentParser
 
 
 class Recipe: 
-    """Creates an instantiation of a Recipe object
+    """Creates Recipe objects that display dish name and ingredients. 
+    
+    Attributes: 
+    
+        name (str): dish name
+        ingredients (str): dish ingredients 
     """
     def __init__(self, name, ingredients):
+        """Instantiates Recipe attributes. 
+        
+        Args: 
+            name (str): dish name 
+            ingredients (str): dish ingredients 
+            
+        Side effects: 
+            Sets attributes 'name', 'ingredients'. 
+        """
         self.name = name
         self.ingredients = ingredients.split(",")
+    
     def __str__(self):
+        """Caleb - magic methods
+        Returns informal representation of Recipe objects."""
+        
         return f"{self.ingredients}"
 
 
 def introduction(recipelist): 
     
-    """Prints out the first and last 10 recipe names in recipelist.
+    """Brooke - custom list sorting 
+    Prints out the first and last 10 recipe names in recipelist.
     
     Args: 
         recipelist (list): stores list of recipes 
@@ -39,7 +58,7 @@ def introduction(recipelist):
         
            
 def match(recipelist, user_ing): 
-    """
+    """Brooke - set operations
     Checks if the user's ingredients satisfy any of the recipes in the 
     textfile by implementing a set intersection. If not, it returns the 
     ingredients the user needs to complete the recipes stored in the
@@ -68,8 +87,7 @@ def match(recipelist, user_ing):
     
     
 def allergies(recipelist, allergy):
-    """ 
-        Ayinde - (Sequence Unpacking)
+    """Ayinde - Sequence Unpacking
         Iterates through the list and finds recipes with nuts. Used as a key 
         function definition for (sequence unpacking)
         
@@ -89,8 +107,7 @@ def allergies(recipelist, allergy):
             continue
     return no_allergy
 def get_data1(df):
-        """
-        Ayinde - Data Visualization
+        """Ayinde - Data Visualization
         Creates a data visual of number of minutes per each dish.
         
         Args:
@@ -105,8 +122,7 @@ def get_data1(df):
         
         
 def get_data2(df):
-        """ 
-        Ayinde - Data Visualization
+        """Ayinde - Data Visualization
         Creates a data visual representation of the relationship between
         Number of ingredients and the time to cook the overall dish
         Args:
@@ -121,7 +137,7 @@ def get_data2(df):
     
         
 def sorted(df):
-    """
+    """Semhar - Pandas
     Creates two DataFrames: one sorted based on the number of steps in a
     recipe and another on the amount of time it takes to make a food.
     Returns the top 5 foods in both DataFrames. 
@@ -148,7 +164,8 @@ Dishes that take the shortest amount of time:
           
     
 def limited_ingr(filepath, ingr_lim=5):
-    """Finds recipes with 5 or specific number of ingredients and provides them to user. 
+    """Bella - key arguments
+    Finds recipes with 5 or specific number of ingredients and provides them to user. 
     Args:
         filepath (str): text file containing recipes.  
         ingr_lim (int): an integer representing a limited number of ingredients.
@@ -169,7 +186,7 @@ def limited_ingr(filepath, ingr_lim=5):
     return limited_i
         
 def cuisine(region, df):
-    """
+    """Semhar
     Filters through dataframe of foods and returns new dataframe
     containing foods from a user selcted nation.
 
@@ -186,7 +203,7 @@ def cuisine(region, df):
 
       
 def main(filepath):
-    """
+    """Semhar - conditional expressions 
     Opens textfile and DataFrame into program. Asks user which
     program functionality they want to see and prints calls function
     associated with their choice. 
@@ -246,7 +263,8 @@ def main(filepath):
     
 
 def parse_args(arglist):
-    """ Parse command-line arguments.
+    """ Bella - argument parser 
+    Parse command-line arguments.
     
     Expect one mandatory arguments:
         - filepath (str): path to file containing recipes.
