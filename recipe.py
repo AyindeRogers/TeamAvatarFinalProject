@@ -175,8 +175,8 @@ def cuisine(region, df):
     regiondf = df[df["Region"] == region]
     newdf = regiondf[["Dish", "Ingredients"]].reset_index(drop = True)
     return newdf
-   
-    
+
+      
 def main(filepath):
     """
     Opens textfile and DataFrame into program. Asks user which
@@ -210,8 +210,10 @@ def main(filepath):
     if question == "1":
         user_ing = input("What ingredients do you have?").lower() 
         print(match(recipelist,user_ing)) 
+            
     if question == "2":
         print(sorted(df))
+        print(f"Dishes with 5 or fewer ingredients:{limited_ingr(f)}")
         
     if question == "3":
         nation = input("""What region would you like to see? (European, African, South America, North American, East Asian)
@@ -232,8 +234,6 @@ def main(filepath):
         
     if question == "6": 
         print(introduction(recipelist))
-        
-    
 
     
 
