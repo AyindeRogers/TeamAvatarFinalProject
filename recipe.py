@@ -242,7 +242,7 @@ def main(filepath):
         if question == "2":
             ingr_lim = input("""How many ingredients do you want?
                         """).lower()
-            print(f"Dishes with your selected amount of ingredients:{limited_ingr(recipelist,ingr_lim=5)}")
+            print(f"Dishes with your selected amount of ingredients:{limited_ingr(recipelist,ingr_lim)}")
         
         if question == "3":
             nation = input("""What region would you like to see? (European, African, South America, North American, East Asian)
