@@ -126,25 +126,25 @@ Dishes that take the shortest amount of time:
 {timedf}""")
           
     
-def limited_ingr(ingr_lim=5):
-    """Finds recipes with less than 5 ingredients and provides them to user. 
-        Args:
-            filepath (str): file containing recipes.  
-            ingr_lim (int): an integer representing a limited number of ingredients.
-                Unless user specifies otherwise the default value is 5. 
-                    
-        Returns:
-            List of recipes with less than 5 ingredients.
+def limited_ingr(filepath, ingr_lim=5):
+    """Finds recipes with 5 or specific number of ingredients and provides them to user. 
+    Args:
+        filepath (str): text file containing recipes.  
+        ingr_lim (int): an integer representing a limited number of ingredients.
+            Unless user specifies otherwise the default value is 5. 
+                 
+    Returns:
+        List of recipes with 5 or specified number of ingredients.
     """
-
-    with open("recipes.txt", "r", encoding="utf-8") as f:
-        limited_i = []
+    limited_i = []
+    with open(filepath, "r", encoding="utf-8") as f:
         for line in f:
             recipe,ingredients = line.split("=")
-        if len(ingredients) == ingr_lim:
-            limited_i.append(recipe)
-        else:
-            None
+            ilist = ingredients.split(",")
+            #print(ilist)
+            if len(ilist) == ingr_lim:
+                limited_i.append(recipe)
+                
     return limited_i
         
 def cuisine(region, df):
@@ -234,7 +234,8 @@ def parse_args(arglist):
         arglist (list of str): arguments from the command line.
     
     Returns:
-        namespace: the parsed arguments, as namespace.
+        namespace: the parsed arguments, as namespace, value is path to text 
+            file.
     """
     parser = ArgumentParser()
     parser.add_argument("filepath", type = str, help="path to recipe and ingredients text file")
