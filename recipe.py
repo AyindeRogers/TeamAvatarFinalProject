@@ -223,7 +223,11 @@ def main(filepath):
             ingredients = split[1]
             recipelist.append(Recipe(name, ingredients))
     df = pd.read_csv("Recipes.csv")
-    question = input("""Welcome to Cookbook!
+    question = ""
+    while question != "7":
+        
+        question = input("""
+                    Welcome to Cookbook!
                      Choose one of the following options:
                      1. Find a dish based on the ingredients you have at home
                      2. Easy to make recipes
@@ -231,34 +235,35 @@ def main(filepath):
                      4. Cool food data
                      5. Allergy free food
                      6. Take a look at our recipes
+                     7. Quit
                      """)
-    if question == "1":
-        user_ing = input("What ingredients do you have?").lower() 
-        print(match(recipelist,user_ing)) 
+        if question == "1":
+            user_ing = input("What ingredients do you have?").lower() 
+            print(match(recipelist,user_ing)) 
             
-    if question == "2":
-        print(sorted(df))
-        print(f"Dishes with 5 or fewer ingredients:{limited_ingr(f)}")
+        if question == "2":
+            print(sorted(df))
+            print(f"Dishes with 5 or fewer ingredients:{limited_ingr(f)}")
         
-    if question == "3":
-        nation = input("""What region would you like to see? (European, African, South America, North American, East Asian)
+        if question == "3":
+            nation = input("""What region would you like to see? (European, African, South America, North American, East Asian)
                        """)
-        print(cuisine(nation, df))
-    if question == "4":
-        choice = input("""What kind of data do you want to see?
+            print(cuisine(nation, df))
+        if question == "4":
+            choice = input("""What kind of data do you want to see?
                     1. Distribution of prep time of our various recipes
                     2. Relationship between minutes of prep time and number of ingredients
                     """)
         
-        get_data1(df) if choice == "1" else get_data2(df)
+            get_data1(df) if choice == "1" else get_data2(df)
         
-    if question == "5":
-        allergy = input("""What allergy do you have?
+        if question == "5":
+            allergy = input("""What allergy do you have?
                         """).lower()
-        print(allergies(recipelist, allergy)) 
+            print(allergies(recipelist, allergy)) 
         
-    if question == "6": 
-        print(introduction(recipelist))
+        if question == "6": 
+            print(introduction(recipelist))
 
     
 
