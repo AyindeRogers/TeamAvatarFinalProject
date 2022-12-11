@@ -31,7 +31,7 @@ def introduction(recipelist):
         RecipeNames.append(recipe)
     
     RecipeNames.sort(key = lambda a: a[0])
-    #list2 =  [RecipeNames.sort(key = lambda a: a[40:51])]      
+          
          
     print(f"""Here are some of the Recipes you can choose from :
                 {RecipeNames[0:5]}
