@@ -23,15 +23,17 @@ def introduction(recipelist):
     Returns: 
         
     """
-
+    RecipeNames = [] 
     for r in recipelist: 
         recipe, ingredients = [r.name, r.ingredients]
-        return recipe 
+        RecipeNames.append(recipe)
     
-    RecipeNames = sorted(recipelist, key = introduction)       
+    RecipeNames.sort(key = lambda a: a[0])
+    #list2 =  [RecipeNames.sort(key = lambda a: a[40:51])]      
          
     print(f"""Here are some of the Recipes you can choose from :
-                {RecipeNames}""") 
+                {RecipeNames[0:5]}
+                {RecipeNames[45:50]}""") 
         
            
 def match(recipelist, user_ing): 
