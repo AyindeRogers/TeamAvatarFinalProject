@@ -241,7 +241,8 @@ def main(filepath):
             
         if question == "2":
             print(sorted(df))
-            print(f"Dishes with 5 ingredients:{limited_ingr(recipelist,ingr_lim=5)}")
+            print(f"""
+Dishes with 5 ingredients:{limited_ingr(recipelist,ingr_lim=5)}""")
         
         if question == "3":
             nation = input("""What region would you like to see? (European, African, South America, North American, East Asian)
