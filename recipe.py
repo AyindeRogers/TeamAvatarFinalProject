@@ -164,7 +164,7 @@ Dishes that take the shortest amount of time:
           
     
 def limited_ingr(recipelist, ingr_lim=5):
-    """Bella - optional parameters
+    """Bella - Keyword argument
     Finds recipes with 5 or specific number of ingredients and provides them to user. 
     
     Args:
@@ -240,9 +240,8 @@ def main(filepath):
             print(match(recipelist,user_ing)) 
             
         if question == "2":
-            ingr_lim = input("""How many ingredients do you want?
-                        """).lower()
-            print(f"Dishes with your selected amount of ingredients:{limited_ingr(recipelist,ingr_lim)}")
+            print(sorted(df))
+            print(f"Dishes with 5 ingredients:{limited_ingr(recipelist,ingr_lim=5)}")
         
         if question == "3":
             nation = input("""What region would you like to see? (European, African, South America, North American, East Asian)
@@ -267,7 +266,7 @@ def main(filepath):
     
 
 def parse_args(arglist):
-    """ Bella - argument parser 
+    """ Bella - Argument parser 
     Parse command-line arguments.
     
     Expect one mandatory arguments:
