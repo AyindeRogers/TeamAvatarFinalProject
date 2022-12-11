@@ -15,17 +15,16 @@ class Recipe:
 
 def introduction(recipelist): 
     
+    lambda t : t[0]
     for r in recipelist: 
         recipe, ingredients = [r.name, r.ingredients]
         return recipe 
     
-    RecipeNames = sorted(recipelist, key=introduction)
+    for recipe, ingredients in sorted(recipelist, key = lambda t: t[0]):
+            print(f"{recipe}")    
     print(f"""Here are some of the Recipes you can choose from :
-          {RecipeNames[0:11]}, {RecipeNames[40:51]}""")
-        
-    
-    
-        
+          {recipe[0:11]}, {recipe[40:51]}""") 
+           
 def match(recipelist, user_ing): 
     """
     Checks if the user's ingredients satisfy any of the recipes in the 
