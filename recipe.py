@@ -11,8 +11,22 @@ class Recipe:
         self.ingredients = ingredients.split(",")
     def __str__(self):
         return f"{self.ingredients}"
+
+
+def introduction(recipelist): 
     
-def match(recipeList, user_ing): 
+    for r in recipelist: 
+        recipe, ingredients = [r.name, r.ingredients]
+        return recipe 
+    
+    RecipeNames = sorted(recipelist, key=introduction)
+    print(f"""Here are some of the Recipes you can choose from :
+          {RecipeNames[0:11]}, {RecipeNames[40:51]}""")
+        
+    
+    
+        
+def match(recipelist, user_ing): 
     """
     Checks if the user's ingredients satisfy any of the recipes in the 
     textfile by implementing a set intersection. If not, it returns the 
@@ -33,7 +47,7 @@ def match(recipeList, user_ing):
     user = user_ing.strip(" ").split(",")
     user_ingredients = set(user)  
     
-    for r in recipeList:
+    for r in recipelist: 
         
         recipe,ingredients = [r.name, r.ingredients] 
         rec_ing = set(r.ingredients)
@@ -42,10 +56,8 @@ def match(recipeList, user_ing):
             print(f"You can make {r.name}")
         
         
-        #else: 
-            #print(f"""None of your ingredients match our recipes. Here are 
-            #some ideas to get you started.
-            #{r.name} = {rec_ing - match}""")
+        else: 
+            print(f"""None of your ingredients match our recipes.""")
                
     
     
@@ -160,6 +172,7 @@ def main(filepath):
                      3. Cultural dishes
                      4. Cool food data
                      5. Allergy free food
+                     6. Take a look at our recipes
                      """)
     if question == "1":
         user_ing = input("What ingredients do you have?").lower() 
@@ -183,6 +196,11 @@ def main(filepath):
         allergy = input("""What allergy do you have?
                         """).lower()
         print(allergies(recipelist, allergy)) 
+        
+    #if question == "6": 
+        print(introduction(recipelist))
+        
+    
 
     
 
