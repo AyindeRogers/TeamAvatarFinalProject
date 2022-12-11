@@ -15,15 +15,24 @@ class Recipe:
 
 def introduction(recipelist): 
     
-    lambda t : t[0]
+    """Prints out the first and last 10 recipe names in recipelist.
+    
+    Args: 
+        recipelist (list): stores list of recipes 
+    
+    Returns: 
+        
+    """
+
     for r in recipelist: 
         recipe, ingredients = [r.name, r.ingredients]
         return recipe 
     
-    for recipe, ingredients in sorted(recipelist, key = lambda t: t[0]):
-            print(f"{recipe}")    
+    RecipeNames = sorted(recipelist, key = introduction)       
+         
     print(f"""Here are some of the Recipes you can choose from :
-          {recipe[0:11]}, {recipe[40:51]}""") 
+                {RecipeNames}""") 
+        
            
 def match(recipelist, user_ing): 
     """
@@ -33,14 +42,8 @@ def match(recipelist, user_ing):
     textfile, through a symmetric difference.
             
     Args: 
-        recipeList (str) : stores list of recipes 
-        user_ing (set of strings) : contains user's ingredients 
-                
-    Returns: 
-        Match (set of strings): Recipe(s) a user has the correct 
-        ingredients for 
-        (set of strings): Ingredients a user needs to 
-        complete the recipes stored in the filepath. 
+        recipeList (list) : stores list of recipes 
+        user_ing (set of strings) : contains user's ingredients  
     """
         
     user = user_ing.strip(" ").split(",")
@@ -51,11 +54,11 @@ def match(recipelist, user_ing):
         recipe,ingredients = [r.name, r.ingredients] 
         rec_ing = set(r.ingredients)
         match = user_ingredients & rec_ing
+        
         if match and len(match) == len(rec_ing):
-            print(f"You can make {r.name}")
-        
-        
-        else: 
+                    print(f"You can make {r.name}")
+            
+        else :  
             print(f"""None of your ingredients match our recipes.""")
                
     
@@ -214,7 +217,7 @@ def main(filepath):
                         """).lower()
         print(allergies(recipelist, allergy)) 
         
-    #if question == "6": 
+    if question == "6": 
         print(introduction(recipelist))
         
     
