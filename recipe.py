@@ -64,7 +64,8 @@ def match(recipelist, user_ing):
     
     
 def allergies(recipelist, allergy):
-    """
+    """ 
+        Ayinde - (Sequence Unpacking)
         Iterates through the list and finds recipes with nuts. Used as a key 
         function definition for (sequence unpacking)
         
@@ -85,6 +86,7 @@ def allergies(recipelist, allergy):
     return no_allergy
 def get_data1(df):
         """
+        Ayinde - Data Visualization
         Creates a data visual of number of minutes per each dish.
         
         Args:
@@ -99,7 +101,9 @@ def get_data1(df):
         
         
 def get_data2(df):
-        """ Creates a data visual representation of the relationship between
+        """ 
+        Ayinde - Data Visualization
+        Creates a data visual representation of the relationship between
         Number of ingredients and the time to cook the overall dish
         Args:
             df - dataframe of the csv that we are working in
