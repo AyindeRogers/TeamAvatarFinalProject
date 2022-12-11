@@ -163,7 +163,7 @@ Dishes that take the shortest amount of time:
 {timedf}""")
           
     
-def limited_ingr(recipelist, ingr_lim):
+def limited_ingr(recipelist, ingr_lim=5):
     """Finds recipes with 5 or specific number of ingredients and provides them to user. 
     Args:
         recipelist (str): list of recipes.  
