@@ -33,7 +33,7 @@ class Recipe:
         return f"{self.ingredients}"
 
 
-def introduction(recipelist): 
+def introduction(recipelist, letter): 
     
     """Brooke - custom list sorting 
     Prints out the first and last 10 recipe names in recipelist.
@@ -44,17 +44,25 @@ def introduction(recipelist):
     Returns: 
         
     """
-    RecipeNames = [] 
-    for r in recipelist: 
-        recipe, ingredients = [r.name, r.ingredients]
-        RecipeNames.append(recipe)
+    RecipeLetter = [] 
     
-    RecipeNames.sort(key = lambda a: a[0])
+    for r in recipelist: 
+        if r.name.startswith(letter): 
+            RecipeLetter.append(r.name)
+    
+    return RecipeLetter
+    
+    
+    #for r in recipelist: 
+        #recipe, ingredients = [r.name, r.ingredients]
+        #RecipeNames.append(recipe)
+    
+   # RecipeNames.sort(key = lambda a: a[0])
           
          
-    print(f"""Here are some of the Recipes you can choose from :
-                {RecipeNames[0:5]}
-                {RecipeNames[45:50]}""") 
+    #print(f"""Here are some of the Recipes you can choose from :
+                #{RecipeNames[0:5]}
+                #{RecipeNames[45:50]}""") 
         
            
 def match(recipelist, user_ing): 
@@ -260,7 +268,10 @@ Dishes with 5 ingredients:{limited_ingr(recipelist,ingr_lim=5)}""")
             print(allergies(recipelist, allergy)) 
         
         if question == "6": 
-            print(introduction(recipelist))
+            starts = input("""Enter the first letter you want your recipe to 
+                           start with.
+                           """)
+            print(introduction(recipelist, letter = starts.upper()))
 
     
 
