@@ -99,18 +99,23 @@ def get_data2(df):
         
 def sorted(df):
     """
-        Returns a sorted list of recipes with the fewest to most ingredients.
-        (custom key sorting)
-        
-        Args: filepath (str) - Filepath in which the recipe's are
-        
-        Returns: A list of recipes with fewest to most ingredients.
+    Creates two DataFrames: one sorted based on the number of steps in a
+    recipe and another on the amount of time it takes to make a food.
+    Returns the top 5 foods in both DataFrames. 
+
+    Args:
+        df(DataFrame): contains recipe information
+
+    Returns:
+        Five dishes that take the fewest number of steps and five dishes that
+        take the shortest amount of time. 
     """
+    
     df1 = df.sort_values(["Steps"]).head()
     stepsdf = df1[["Dish", "Ingredients", "Steps"]]
     df2 = df.sort_values(["Minutes"]).head()
     timedf = df2[["Dish", "Ingredients", "Minutes"]]
-    print(f"""Dishes that take the fewest steps: 
+    return(f"""Dishes that take the fewest steps: 
               
 {stepsdf}
               
@@ -140,23 +145,36 @@ def limited_ingr(ingr_lim=5):
             None
     return limited_i
         
-def cuisine(nation, df):
+def cuisine(region, df):
     """
-    Filters through given dataframe of foods and returns new dataframe
-    containing foods from a user selcted nati on.
-        
-    Args: 
-            nation(str): name of a given nation
-            foods(DataFrame): contains all the food opinions
-        Returns:
-            choice (DataFrame): contains the food opinions from a country 
+    Filters through dataframe of foods and returns new dataframe
+    containing foods from a user selcted nation.
+
+    Args:
+        region(str): name of a given region
+        df(DataFrame): contains recipe information
+
+    Returns:
+        newdf(DataFrame): only contains foods from a selected region
     """
-    nationdf = df[df["Region"] == nation]
-    newdf = nationdf[["Dish", "Ingredients"]].reset_index(drop = True)
+    regiondf = df[df["Region"] == region]
+    newdf = regiondf[["Dish", "Ingredients"]].reset_index(drop = True)
     return newdf
    
     
 def main(filepath):
+    """
+    Opens textfile and DataFrame into program. Asks user which
+    program functionality they want to see and prints calls function
+    associated with their choice. 
+
+    Args:
+        filepath(str): path to textfile containing recipe information
+
+    Side effects:
+        Display message to user based on user input.
+    """
+    
     recipelist = []
     with open (filepath) as f :
         for line in f:
@@ -178,7 +196,7 @@ def main(filepath):
         user_ing = input("What ingredients do you have?").lower() 
         print(match(recipelist,user_ing)) 
     if question == "2":
-        return sorted(df)
+        print(sorted(df))
         
     if question == "3":
         nation = input("""What region would you like to see? (European, African, South America, North American, East Asian)
