@@ -207,7 +207,7 @@ def cuisine(region, df):
 
       
 def main(filepath):
-    """Semhar - conditional expressions 
+    """Semhar - conditional expressions, with statement
     Opens textfile and DataFrame into program. Asks user which
     program functionality they want to see and prints calls function
     associated with their choice. 
