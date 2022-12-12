@@ -204,6 +204,15 @@ def cuisine(region, df):
     newdf = regiondf[["Dish", "Ingredients"]].reset_index(drop = True)
     return newdf
 
+def get_ingredients(dishName, recipeLst):
+    for recipe in recipeLst:
+        if dishName == recipe.name:
+            return recipe.ingredients
+    
+    return "Dish not Fount"
+        
+    
+        
 #def total_recipe_count_two1():
    # """Caleb - regex
    # Opens the recipes text file and reads through it. It then finds all the
