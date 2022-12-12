@@ -78,13 +78,14 @@ def match(recipelist, user_ing):
         rec_ing = set(r.ingredients)
         match = user_ingredients & rec_ing
         
+         
         if match:
             if len(match) == len(rec_ing):
                 return (f"You can make {r.name}!")
-            
-        else:
-            return (f"""You still need {rec_ing - user_ingredients} to make
-                         {r.name}""")
+                    
+            if len(match) == 4: 
+                return(f"""You still need {rec_ing - user_ingredients} to make
+                        {r.name}""")
     
 def allergies(recipelist, allergy):
     """Ayinde - Sequence Unpacking
