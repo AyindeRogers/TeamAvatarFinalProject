@@ -75,7 +75,6 @@ def match(recipelist, user_ing):
     
     for r in recipelist: 
         
-        recipe,ingredients = [r.name, r.ingredients] 
         rec_ing = set(r.ingredients)
         match = user_ingredients & rec_ing
         
@@ -83,8 +82,8 @@ def match(recipelist, user_ing):
             if len(match) == len(rec_ing):
                 return (f"You can make {r.name}!")
             
-            else:
-                return (f"""You still need {rec_ing - user_ingredients} to make
+        else:
+            return (f"""You still need {rec_ing - user_ingredients} to make
                          {r.name}""")
     
 def allergies(recipelist, allergy):
