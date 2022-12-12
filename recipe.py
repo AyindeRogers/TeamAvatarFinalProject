@@ -36,7 +36,8 @@ class Recipe:
 def ChooseLetter(recipelist, letter): 
     
     """Brooke - keyword arguments 
-    Returns list of recipes that starts with a letter chosen by user. 
+    Returns list of recipes that starts with a letter chosen by user passed 
+    as a key argument in the main function. 
     
     Args: 
         recipelist (list): stores list of recipes 
@@ -64,7 +65,7 @@ def match(recipelist, user_ing):
         user_ing (set of strings) : contains user's ingredients  
         
     Returns: 
-
+         dish name (str) that the user can make  
     """
         
     user = user_ing.strip().split(",")
@@ -255,14 +256,15 @@ def main(filepath):
             print(limited_ingr(recipelist))
         
         if question == "3":
-            nation = input("""What region would you like to see? (European, African, South America, North American, East Asian)
-                       """)
+            nation = input("""What region would you like to see? 
+            (European, African, South America, North American, East Asian)
+            """)
             print(cuisine(nation, df))
         if question == "4":
             choice = input("""What kind of data do you want to see?
                     1. Distribution of prep time of our various recipes
-                    2. Relationship between minutes of prep time and number of ingredients
-                    """)
+                    2. Relationship between minutes of prep time and number of 
+                    ingredients""")
         
             get_data1(df) if choice == "1" else get_data2(df)
         
