@@ -195,7 +195,22 @@ def cuisine(region, df):
     newdf = regiondf[["Dish", "Ingredients"]].reset_index(drop = True)
     return newdf
 
-      
+ def total_recipe_count_two1():
+    """Caleb - regex
+    Opens the recipes text file and reads through it. It then finds all the
+    the matches for the regular expression stated which grabs every line in the text file
+    and counts the number of matches.
+    
+    returns:
+        (int): number of lines in the recipe text file indicating how many recipes are in it.
+    """
+    text = 'recipes.txt'
+    counter =0
+    with open(text) as rf:
+        counts = re.findall(".*[=].*", rf.read())
+       
+    return(len(counts))
+
 def main(filepath):
     """Semhar - conditional expressions, with statement
     Opens textfile and DataFrame into program. Asks user which
