@@ -197,7 +197,7 @@ The following dishes require 5 ingredients or less to prepare:
         
         
 def cuisine(region, df):
-    """Semhar
+    """Semhar - Pandas
     Filters through dataframe of foods and returns new dataframe
     containing foods from a user selcted nation.
 
