@@ -51,6 +51,7 @@ def ChooseLetter(recipelist, letter):
     for r in recipelist: 
         if r.name.startswith(letter): 
             RecipeLetter.append(r.name)
+            
     
     return RecipeLetter
         
@@ -66,6 +67,8 @@ def match(recipelist, user_ing):
         
     Returns: 
          dish name (str) that the user can make  
+         set of ingredients user still needs (if they have some of the necessary
+         ingredients) to complete a dish
     """
         
     user = user_ing.strip().split(",")
