@@ -3,7 +3,6 @@ import seaborn as sns
 import pandas as pd
 import sys
 from argparse import ArgumentParser
-import random
 
 
 class Recipe: 
