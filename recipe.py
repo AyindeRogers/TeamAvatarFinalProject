@@ -176,8 +176,9 @@ def limited_ingr(recipelist):
         
         five_ing = [(i.name) for i in recipelist if len(i.ingredients) <= 5]
         
-    return f"""The following recipes require 5 ingredients or less: 
-            {five_ing}"""
+    return f"""
+The following recipes require 5 ingredients or less: 
+{five_ing}"""
         
 def cuisine(region, df):
     """Semhar
@@ -237,7 +238,7 @@ def main(filepath):
         
         question = input("""
                     Welcome to Cookbook!
-                     Choose one of the following options:
+                    Choose one of the following options:
                      1. Find a dish based on the ingredients you have at home
                      2. Easy to make recipes
                      3. Cultural dishes
@@ -247,7 +248,8 @@ def main(filepath):
                      7. Quit
                      """)
         if question == "1":
-            user_ing = input("What ingredients do you have?").lower() 
+            user_ing = input("""What ingredients do you have?
+                             """).lower() 
             print(match(recipelist,user_ing)) 
             
         if question == "2":
@@ -274,8 +276,7 @@ def main(filepath):
             print(allergies(recipelist, allergy)) 
         
         if question == "6": 
-            starts = input("""Enter the first letter you want your recipe to 
-                           start with.
+            starts = input("""Enter the first letter you want your recipe to start with.
                            """)
             print(ChooseLetter(recipelist, letter = starts.upper()))
 
