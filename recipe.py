@@ -239,30 +239,34 @@ def main(filepath):
         question = input("""
                     Welcome to Cookbook!
                     Choose one of the following options:
-                     1. Find a dish based on the ingredients you have at home
-                     2. Easy to make recipes
-                     3. Cultural dishes
-                     4. Cool food data
-                     5. Allergy free food
-                     6. Pick a letter and get a recipe
+                     1. Table of contents
+                     2. Find a dish based on the ingredients you have at home
+                     3. Easy to make recipes
+                     4. Cultural dishes
+                     5. Cool food data
+                     6. Allergy free food
                      7. Quit
                      """)
-        if question == "1":
+        if question == "1": 
+            starts = input("""Enter the letter the dish starts with.
+                           """)
+            print(ChooseLetter(recipelist, letter = starts.upper()))
+        if question == "2":
             user_ing = input("""What ingredients do you have?
                              """).lower() 
             print(match(recipelist,user_ing)) 
             
-        if question == "2":
+        if question == "3":
             print(sorted(df))
             
             print(limited_ingr(recipelist))
         
-        if question == "3":
+        if question == "4":
             nation = input("""What region would you like to see? 
             (European, African, South America, North American, East Asian)
             """)
             print(cuisine(nation, df))
-        if question == "4":
+        if question == "5":
             choice = input("""What kind of data do you want to see?
                     1. Distribution of prep time of our various recipes
                     2. Relationship between minutes of prep time and number of 
@@ -270,15 +274,12 @@ def main(filepath):
         
             get_data1(df) if choice == "1" else get_data2(df)
         
-        if question == "5":
+        if question == "6":
             allergy = input("""What allergy do you have?
                         """).lower()
             print(allergies(recipelist, allergy)) 
         
-        if question == "6": 
-            starts = input("""Enter the first letter you want your recipe to start with.
-                           """)
-            print(ChooseLetter(recipelist, letter = starts.upper()))
+
 
     
 
