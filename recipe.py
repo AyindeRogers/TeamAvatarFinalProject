@@ -214,11 +214,15 @@ def cuisine(region, df):
 
 def get_ingredients(dishName, recipeLst):
     """ Caleb - f-strings
-    Purpose
+    Purpose- The funciton uses a for loop to go through recipes in the recipeLst
+    and has a if statement that looks to see if the dish name is in the recipe Name.
     
     Args:
+    dishName(str): string of the dish name
+    recipeLst(lst): list of the recipies with ingredients
     
     Return:
+    if the name is found in the list a f string will appear with Here are its ingredients with the ingredients following it.
     """
     for recipe in recipeLst:
         if dishName == recipe.name:
