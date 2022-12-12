@@ -33,16 +33,17 @@ class Recipe:
         return f"{self.ingredients}"
 
 
-def introduction(recipelist, letter): 
+def ChooseLetter(recipelist, letter): 
     
-    """Brooke - custom list sorting 
-    Prints out the first and last 10 recipe names in recipelist.
+    """Brooke - keyword arguments 
+    Returns list of recipes that starts with a letter chosen by user. 
     
     Args: 
         recipelist (list): stores list of recipes 
+        letter (str): letter entered by user
     
     Returns: 
-        
+        RecipeLetter (list): recipes that start with letter chosen by user.
     """
     RecipeLetter = [] 
     
@@ -51,33 +52,22 @@ def introduction(recipelist, letter):
             RecipeLetter.append(r.name)
     
     return RecipeLetter
-    
-    
-    #for r in recipelist: 
-        #recipe, ingredients = [r.name, r.ingredients]
-        #RecipeNames.append(recipe)
-    
-   # RecipeNames.sort(key = lambda a: a[0])
-          
-         
-    #print(f"""Here are some of the Recipes you can choose from :
-                #{RecipeNames[0:5]}
-                #{RecipeNames[45:50]}""") 
         
            
 def match(recipelist, user_ing): 
     """Brooke - set operations
     Checks if the user's ingredients satisfy any of the recipes in the 
-    textfile by implementing a set intersection. If not, it returns the 
-    ingredients the user needs to complete the recipes stored in the
-    textfile, through a symmetric difference.
+    textfile by implementing a set intersection. 
             
     Args: 
         recipeList (list) : stores list of recipes 
         user_ing (set of strings) : contains user's ingredients  
+        
+    Returns: 
+
     """
         
-    user = user_ing.strip(" ").split(",")
+    user = user_ing.strip().split(",")
     user_ingredients = set(user)  
     
     for r in recipelist: 
@@ -87,7 +77,7 @@ def match(recipelist, user_ing):
         match = user_ingredients & rec_ing
         
         if match and len(match) == len(rec_ing):
-                return (f"You can make {r.name}")
+                return (f"You can make {r.name}!")
     
                
     
@@ -238,7 +228,7 @@ def main(filepath):
                      3. Cultural dishes
                      4. Cool food data
                      5. Allergy free food
-                     6. Take a look at our recipes
+                     6. Pick a letter and get a recipe
                      7. Quit
                      """)
         if question == "1":
@@ -271,7 +261,7 @@ Dishes with 5 ingredients:{limited_ingr(recipelist,ingr_lim=5)}""")
             starts = input("""Enter the first letter you want your recipe to 
                            start with.
                            """)
-            print(introduction(recipelist, letter = starts.upper()))
+            print(ChooseLetter(recipelist, letter = starts.upper()))
 
     
 
