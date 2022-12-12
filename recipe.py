@@ -33,43 +33,44 @@ class Recipe:
         return f"{self.ingredients}"
 
 
-def introduction(recipelist): 
+def ChooseLetter(recipelist, letter): 
     
-    """Brooke - custom list sorting 
-    Prints out the first and last 10 recipe names in recipelist.
+    """Brooke - keyword arguments 
+    Returns list of recipes that starts with a letter chosen by user passed 
+    as a key argument in the main function. 
     
     Args: 
         recipelist (list): stores list of recipes 
+        letter (str): letter entered by user
     
     Returns: 
-        
+        RecipeLetter (list): recipes that start with letter chosen by user.
     """
-    RecipeNames = [] 
-    for r in recipelist: 
-        recipe, ingredients = [r.name, r.ingredients]
-        RecipeNames.append(recipe)
+    RecipeLetter = [] 
     
-    RecipeNames.sort(key = lambda a: a[0])
-          
-         
-    print(f"""Here are some of the Recipes you can choose from :
-                {RecipeNames[0:5]}
-                {RecipeNames[45:50]}""") 
-        
-           
+    for r in recipelist: 
+        if r.name.startswith(letter): 
+            RecipeLetter.append(r.name)
+
+    return RecipeLetter
+                
+                
 def match(recipelist, user_ing): 
     """Brooke - set operations
     Checks if the user's ingredients satisfy any of the recipes in the 
-    textfile by implementing a set intersection. If not, it returns the 
-    ingredients the user needs to complete the recipes stored in the
-    textfile, through a symmetric difference.
+    textfile by implementing a set intersection and difference. 
             
     Args: 
         recipeList (list) : stores list of recipes 
         user_ing (set of strings) : contains user's ingredients  
+        
+    Returns: 
+         Either a dish name (str) that the user can make or a
+         set of ingredients user still needs (if they have some of the necessary
+         ingredients) to complete a dish.
     """
         
-    user = user_ing.strip(" ").split(",")
+    user = user_ing.strip().split(",")
     user_ingredients = set(user)  
     
     for r in recipelist: 
@@ -78,12 +79,13 @@ def match(recipelist, user_ing):
         rec_ing = set(r.ingredients)
         match = user_ingredients & rec_ing
         
-        if match and len(match) == len(rec_ing):
-                    print(f"You can make {r.name}")
+        if match:
+            if len(match) == len(rec_ing):
+                return (f"You can make {r.name}!")
             
-        else :  
-            print(f"""None of your ingredients match our recipes.""")
-               
+            else:
+                return (f"""You still need {rec_ing - user_ingredients} to make
+                         {r.name}""")
     
     
 def allergies(recipelist, allergy):
@@ -91,12 +93,14 @@ def allergies(recipelist, allergy):
         Iterates through the list and finds recipes with nuts. Used as a key 
         function definition for (sequence unpacking)
         
-        Args: filepath (str) - Filepath in which the recipe's are
-              allergy (str) - Allergy User input passed in from the main 
-              function.
+        Args: 
+            filepath (str) - Filepath in which the recipe's are
+            allergy (str) - Allergy User input passed in from the main 
+            function.
         
-        Returns: A list of recipes that do not have the allergy ingredient
-        in them.
+        Returns: 
+            no_allergy (list) - A list of recipes that do not have the allergy 
+            ingredient in them.
     """
     no_allergy=[]
     for r in recipelist:
@@ -106,6 +110,8 @@ def allergies(recipelist, allergy):
         else:
             continue
     return no_allergy
+
+
 def get_data1(df):
         """Ayinde - Data Visualization
         Creates a data visual of number of minutes per each dish.
@@ -167,25 +173,27 @@ Dishes that take the shortest amount of time:
 {timedf}""")
           
     
-def limited_ingr(recipelist, ingr_lim=5):
-    """Bella - optional parameters
-    Finds recipes with 5 or specific number of ingredients and provides them to user. 
+def limited_ingr(recipelist):
+    """Bella - List Comprehension
+    Finds recipes with five or less ingredients and provides them to user. 
     
     Args:
-        recipelist (str): list of recipes.  
-        ingr_lim (int): an integer representing a limited number of ingredients.
-            Unless user specifies otherwise the default value is 5. 
-                 
+        recipelist (list): stores list of recipes.
+                    
     Returns:
-        List of recipes with 5 or specified number of ingredients.
+        F-string containing list of recipes with 5 or less of ingredients.
     """
-    limited_i = []
     for line in recipelist:
-        recipe,ingredients = [line.name, line.ingredients]
-        if len(ingredients) == ingr_lim:
-                limited_i.append(recipe)
-                
-    return limited_i
+        
+        recipe, ingredients = [line.name, line.ingredients]
+        
+        five_ing = [(i.name) for i in recipelist if len(i.ingredients) <= 5]
+        
+    return f"""
+The following dishes require 5 ingredients or less to prepare: 
+
+{five_ing}"""
+        
         
 def cuisine(region, df):
     """Semhar
@@ -203,9 +211,22 @@ def cuisine(region, df):
     newdf = regiondf[["Dish", "Ingredients"]].reset_index(drop = True)
     return newdf
 
-      
+
+def get_ingredients(dishName, recipeLst):
+    """ Caleb - f-strings
+    Purpose
+    
+    Args:
+    
+    Return:
+    """
+    for recipe in recipeLst:
+        if dishName == recipe.name:
+            return f"Here are its ingredients: {recipe.ingredients}"
+
+
 def main(filepath):
-    """Semhar - conditional expressions 
+    """Semhar - conditional expressions, with statement
     Opens textfile and DataFrame into program. Asks user which
     program functionality they want to see and prints calls function
     associated with their choice. 
@@ -230,48 +251,59 @@ def main(filepath):
         
         question = input("""
                     Welcome to Cookbook!
-                     Choose one of the following options:
-                     1. Find a dish based on the ingredients you have at home
-                     2. Easy to make recipes
-                     3. Cultural dishes
-                     4. Cool food data
-                     5. Allergy free food
-                     6. Take a look at our recipes
+                    Choose one of the following options:
+                     1. Table of Contents
+                     2. Find a Dish Based on the Ingredients You Have at Home
+                     3. Easy to Make Recipes
+                     4. Cuisines
+                     5. Food Data
+                     6. Allergy Free Food
                      7. Quit
                      """)
-        if question == "1":
-            user_ing = input("What ingredients do you have?").lower() 
-            print(match(recipelist,user_ing)) 
+        if question == "1": 
+            starts = input("""Enter the letter the dish starts with.
+                           """)
+            if ChooseLetter(recipelist, letter = starts.upper()) != []:
+                print(ChooseLetter(recipelist, letter = starts.upper()))
+                dish = input("""
+Select on of these dishes.
+                         """)
+                print(get_ingredients(dish, recipelist))
+            else:
+                print(f"""Sorry, we don't have any foods that start with {starts.upper()} in our cookbook.""")
             
         if question == "2":
-            count = input("""How many ingredients do you want?
-                        """).lower()
-            print(f"Dishes with your selected amount of ingredients:{limited_ingr(recipelist, ingr_lim=5)}")
-        
+            user_ing = input("""What ingredients do you have? (ex. milk,cheese)
+                             """).lower() 
+            print(match(recipelist,user_ing)) 
+            
         if question == "3":
-            nation = input("""What region would you like to see? (European, African, South America, North American, East Asian)
-                       """)
-            print(cuisine(nation, df))
+            print(sorted(df))
+            
+            print(limited_ingr(recipelist))
+        
         if question == "4":
+            nation = input("""What region would you like to see? 
+            (European, African, South America, North American, East Asian)
+            """)
+            print(cuisine(nation, df))
+        if question == "5":
             choice = input("""What kind of data do you want to see?
                     1. Distribution of prep time of our various recipes
-                    2. Relationship between minutes of prep time and number of ingredients
+                    2. Relationship between minutes of prep time and number of 
+                    ingredients
                     """)
         
             get_data1(df) if choice == "1" else get_data2(df)
         
-        if question == "5":
+        if question == "6":
             allergy = input("""What allergy do you have?
                         """).lower()
             print(allergies(recipelist, allergy)) 
         
-        if question == "6": 
-            print(introduction(recipelist))
-
-    
 
 def parse_args(arglist):
-    """ Bella - argument parser 
+    """ Bella - Argument Parser Class 
     Parse command-line arguments.
     
     Expect one mandatory arguments:
@@ -288,7 +320,6 @@ def parse_args(arglist):
     parser.add_argument("filepath", type = str, help="path to recipe and ingredients text file")
     args = parser.parse_args(arglist)
     return args
-
 
 
 if __name__ == "__main__":
