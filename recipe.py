@@ -188,6 +188,7 @@ def limited_ingr(recipelist):
         
     return f"""
 The following recipes require 5 ingredients or less: 
+
 {five_ing}"""
         
         
@@ -248,12 +249,12 @@ def main(filepath):
         question = input("""
                     Welcome to Cookbook!
                     Choose one of the following options:
-                     1. Table of contents
-                     2. Find a dish based on the ingredients you have at home
-                     3. Easy to make recipes
-                     4. Cultural dishes
-                     5. Cool food data
-                     6. Allergy free food
+                     1. Table of Contents
+                     2. Find a Dish Based on the Ingredients You Have at Home
+                     3. Easy to Make Recipes
+                     4. Cuisines
+                     5. Food Data
+                     6. Allergy Free Food
                      7. Quit
                      """)
         if question == "1": 
@@ -261,7 +262,7 @@ def main(filepath):
                            """)
             print(ChooseLetter(recipelist, letter = starts.upper()))
             dish = input("""
-                         Select on of these dishes.
+Select on of these dishes.
                          """)
             print(get_ingredients(dish, recipelist))
             
@@ -284,7 +285,8 @@ def main(filepath):
             choice = input("""What kind of data do you want to see?
                     1. Distribution of prep time of our various recipes
                     2. Relationship between minutes of prep time and number of 
-                    ingredients""")
+                    ingredients
+                    """)
         
             get_data1(df) if choice == "1" else get_data2(df)
         
