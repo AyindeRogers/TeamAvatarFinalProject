@@ -86,8 +86,6 @@ def match(recipelist, user_ing):
             else:
                 return (f"""You still need {rec_ing - user_ingredients} to make
                          {r.name}""")
-        else:
-            return("Sorry, none of your ingredients are found in the any of our dishes.")
     
 def allergies(recipelist, allergy):
     """Ayinde - Sequence Unpacking
@@ -280,7 +278,11 @@ Select on of these dishes.
         if question == "2":
             user_ing = input("""What ingredients do you have? (ex. milk,cheese)
                              """).lower() 
-            print(match(recipelist,user_ing)) 
+            result = match(recipelist,user_ing)
+            if result == None:
+                print("Sorry, none of your ingredients are found in the any of our dishes.") 
+            else:
+                print(result)
             
         if question == "3":
             print(sorted(df))
