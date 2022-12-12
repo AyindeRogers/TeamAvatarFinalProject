@@ -250,8 +250,7 @@ def main(filepath):
             
         if question == "2":
             print(sorted(df))
-            print(f"""
-Dishes with 5 ingredients:{limited_ingr(recipelist,ingr_lim=5)}""")
+            print(limited_ingr(recipelist))
         
         if question == "3":
             nation = input("""What region would you like to see? (European, African, South America, North American, East Asian)
@@ -279,7 +278,7 @@ Dishes with 5 ingredients:{limited_ingr(recipelist,ingr_lim=5)}""")
     
 
 def parse_args(arglist):
-    """ Bella - Argument parser 
+    """ Bella - Argument Parser Class 
     Parse command-line arguments.
     
     Expect one mandatory arguments:
