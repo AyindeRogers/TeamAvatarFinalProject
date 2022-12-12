@@ -86,7 +86,8 @@ def match(recipelist, user_ing):
             else:
                 return (f"""You still need {rec_ing - user_ingredients} to make
                          {r.name}""")
-    
+        else:
+            return("Sorry, none of your ingredients are found in the any of our dishes.")
     
 def allergies(recipelist, allergy):
     """Ayinde - Sequence Unpacking
