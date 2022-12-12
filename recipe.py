@@ -54,8 +54,8 @@ def ChooseLetter(recipelist, letter):
             
     
     return RecipeLetter
-        
-           
+                
+                
 def match(recipelist, user_ing): 
     """Brooke - set operations
     Checks if the user's ingredients satisfy any of the recipes in the 
@@ -66,9 +66,9 @@ def match(recipelist, user_ing):
         user_ing (set of strings) : contains user's ingredients  
         
     Returns: 
-         dish name (str) that the user can make  
+         Either a dish name (str) that the user can make or a
          set of ingredients user still needs (if they have some of the necessary
-         ingredients) to complete a dish
+         ingredients) to complete a dish.
     """
         
     user = user_ing.strip().split(",")
@@ -88,20 +88,20 @@ def match(recipelist, user_ing):
                 return (f"""You still need {rec_ing - user_ingredients} to make
                          {r.name}""")
     
-               
-    
     
 def allergies(recipelist, allergy):
     """Ayinde - Sequence Unpacking
         Iterates through the list and finds recipes with nuts. Used as a key 
         function definition for (sequence unpacking)
         
-        Args: filepath (str) - Filepath in which the recipe's are
-              allergy (str) - Allergy User input passed in from the main 
-              function.
+        Args: 
+            filepath (str) - Filepath in which the recipe's are
+            allergy (str) - Allergy User input passed in from the main 
+            function.
         
-        Returns: A list of recipes that do not have the allergy ingredient
-        in them.
+        Returns: 
+            no_allergy (list) - A list of recipes that do not have the allergy 
+            ingredient in them.
     """
     no_allergy=[]
     for r in recipelist:
@@ -111,6 +111,8 @@ def allergies(recipelist, allergy):
         else:
             continue
     return no_allergy
+
+
 def get_data1(df):
         """Ayinde - Data Visualization
         Creates a data visual of number of minutes per each dish.
@@ -188,6 +190,7 @@ def limited_ingr(recipelist):
 The following recipes require 5 ingredients or less: 
 {five_ing}"""
         
+        
 def cuisine(region, df):
     """Semhar
     Filters through dataframe of foods and returns new dataframe
@@ -204,30 +207,19 @@ def cuisine(region, df):
     newdf = regiondf[["Dish", "Ingredients"]].reset_index(drop = True)
     return newdf
 
+
 def get_ingredients(dishName, recipeLst):
+    """ Caleb - f-strings
+    Purpose
+    
+    Args:
+    
+    Return:
+    """
     for recipe in recipeLst:
         if dishName == recipe.name:
-            return recipe.ingredients
-    
-    return "Dish not Fount"
-        
-    
-        
-#def total_recipe_count_two1():
-   # """Caleb - regex
-   # Opens the recipes text file and reads through it. It then finds all the
-   # the matches for the regular expression stated which grabs every line in the text file
-   # and counts the number of matches.
-    
-   # returns:
-    #    (int): number of lines in the recipe text file indicating how many recipes are in it.
-    #"""
-    #text = 'recipes.txt'
-    #counter =0
-    #with open(text) as rf:
-    #    counts = re.findall(".*[=].*", rf.read())
-       
-    #return(len(counts))
+            return f"{recipe.ingredients}"
+
 
 def main(filepath):
     """Semhar - conditional expressions, with statement
@@ -268,6 +260,10 @@ def main(filepath):
             starts = input("""Enter the letter the dish starts with.
                            """)
             print(ChooseLetter(recipelist, letter = starts.upper()))
+            dish = input("""Select on of these dishes.
+                         """)
+            print(get_ingredients(dish, recipelist))
+            
         if question == "2":
             user_ing = input("""What ingredients do you have?
                              """).lower() 
@@ -297,9 +293,6 @@ def main(filepath):
             print(allergies(recipelist, allergy)) 
         
 
-
-    
-
 def parse_args(arglist):
     """ Bella - Argument Parser Class 
     Parse command-line arguments.
@@ -318,7 +311,6 @@ def parse_args(arglist):
     parser.add_argument("filepath", type = str, help="path to recipe and ingredients text file")
     args = parser.parse_args(arglist)
     return args
-
 
 
 if __name__ == "__main__":
