@@ -175,7 +175,8 @@ def limited_ingr(recipelist):
         
         five_ing = [(i.name) for i in recipelist if len(i.ingredients) <= 5]
         
-    return f"The following recipes require 5 ingredients or less: {five_ing}."
+    return f"""The following recipes require 5 ingredients or less: 
+            {five_ing}"""
         
 def cuisine(region, df):
     """Semhar
@@ -250,6 +251,7 @@ def main(filepath):
             
         if question == "2":
             print(sorted(df))
+            
             print(limited_ingr(recipelist))
         
         if question == "3":
