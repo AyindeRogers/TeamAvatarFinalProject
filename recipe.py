@@ -83,9 +83,11 @@ def match(recipelist, user_ing):
             if len(match) == len(rec_ing):
                 return (f"You can make {r.name}!")
                     
-            if len(match) == 4: 
+        if len(match) == 4: 
                 return(f"""You still need {rec_ing - user_ingredients} to make
                         {r.name}""")
+
+            
     
 def allergies(recipelist, allergy):
     """Ayinde - Sequence Unpacking
@@ -280,11 +282,9 @@ Select a dish by typing it out exactly as it appears above.
         if question == "2":
             user_ing = input("""What ingredients do you have? (ex. milk,cheese)
                              """).lower() 
-            result = match(recipelist,user_ing)
-            if result == None:
-                print("Sorry, none of your ingredients are found in the any of our dishes.") 
-            else:
-                print(result)
+            print(match(recipelist,user_ing) if match(recipelist,user_ing)!= None 
+                  else "Sorry, none of your ingredients are found in the any of our dishes.") 
+           
             
         if question == "3":
             print(sorted(df))
@@ -302,8 +302,10 @@ Select a dish by typing it out exactly as it appears above.
                     2. Relationship between minutes of prep time and number of 
                     ingredients
                     """)
-        
-            get_data1(df) if choice == "1" else get_data2(df)
+            if choice == "1":
+                get_data1(df) 
+            elif choice == "2": 
+                get_data2(df)
         
         if question == "6":
             allergy = input("""What allergy do you have?
