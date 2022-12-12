@@ -59,7 +59,7 @@ def ChooseLetter(recipelist, letter):
 def match(recipelist, user_ing): 
     """Brooke - set operations
     Checks if the user's ingredients satisfy any of the recipes in the 
-    textfile by implementing a set intersection. 
+    textfile by implementing a set intersection and difference. 
             
     Args: 
         recipeList (list) : stores list of recipes 
