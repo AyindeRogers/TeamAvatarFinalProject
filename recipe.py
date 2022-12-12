@@ -218,7 +218,7 @@ def get_ingredients(dishName, recipeLst):
     """
     for recipe in recipeLst:
         if dishName == recipe.name:
-            return f"{recipe.ingredients}"
+            return f"Here are its ingredients: {recipe.ingredients}"
 
 
 def main(filepath):
