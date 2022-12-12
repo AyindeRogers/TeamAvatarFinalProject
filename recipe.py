@@ -118,6 +118,9 @@ def get_data1(df):
         """
         
         df.hist("Minutes")
+        plt.title("Distribution of Minutes across the Dishes")
+        plt.xlabel("Minutes")
+        plt.ylabel("# of Dishes")
         plt.show()
         
         
@@ -132,6 +135,7 @@ def get_data2(df):
             a graphical display of informaton
         """
         sns.lmplot(x = "Ingredients Count", y = "Minutes", data = df)
+        plt.title('Distribution of Ingredient Count and Minutes')
         plt.show()
 
     
