@@ -51,8 +51,7 @@ def ChooseLetter(recipelist, letter):
     for r in recipelist: 
         if r.name.startswith(letter): 
             RecipeLetter.append(r.name)
-            
-    
+
     return RecipeLetter
                 
                 
@@ -187,7 +186,7 @@ def limited_ingr(recipelist):
         five_ing = [(i.name) for i in recipelist if len(i.ingredients) <= 5]
         
     return f"""
-The following recipes require 5 ingredients or less: 
+The following dishes require 5 ingredients or less to prepare: 
 
 {five_ing}"""
         
@@ -260,14 +259,17 @@ def main(filepath):
         if question == "1": 
             starts = input("""Enter the letter the dish starts with.
                            """)
-            print(ChooseLetter(recipelist, letter = starts.upper()))
-            dish = input("""
+            if ChooseLetter(recipelist, letter = starts.upper()) != []:
+                print(ChooseLetter(recipelist, letter = starts.upper()))
+                dish = input("""
 Select on of these dishes.
                          """)
-            print(get_ingredients(dish, recipelist))
+                print(get_ingredients(dish, recipelist))
+            else:
+                print(f"""Sorry, we don't have any foods that start with {starts.upper()} in our cookbook.""")
             
         if question == "2":
-            user_ing = input("""What ingredients do you have?
+            user_ing = input("""What ingredients do you have? (ex. milk,cheese)
                              """).lower() 
             print(match(recipelist,user_ing)) 
             
