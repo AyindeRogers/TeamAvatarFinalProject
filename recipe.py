@@ -159,25 +159,23 @@ Dishes that take the shortest amount of time:
 {timedf}""")
           
     
-def limited_ingr(recipelist, ingr_lim=5):
-    """Bella - Keyword argument
-    Finds recipes with 5 or specific number of ingredients and provides them to user. 
+def limited_ingr(recipelist):
+    """Bella - List Comprehension
+    Finds recipes with five or less ingredients and provides them to user. 
     
     Args:
-        recipelist (str): list of recipes.  
-        ingr_lim (int): an integer representing a limited number of ingredients.
-            Unless user specifies otherwise the default value is 5. 
-                 
+        recipelist (list): stores list of recipes.
+                    
     Returns:
-        List of recipes with 5 or specified number of ingredients.
+        F-string containing list of recipes with 5 or less of ingredients.
     """
-    limited_i = []
     for line in recipelist:
-        recipe,ingredients = [line.name, line.ingredients]
-        if len(ingredients) == ingr_lim:
-                limited_i.append(recipe)
-                
-    return limited_i
+        
+        recipe, ingredients = [line.name, line.ingredients]
+        
+        five_ing = [(i.name) for i in recipelist if len(i.ingredients) <= 5]
+        
+    return f"The following recipes require 5 ingredients or less: {five_ing}."
         
 def cuisine(region, df):
     """Semhar
@@ -195,21 +193,21 @@ def cuisine(region, df):
     newdf = regiondf[["Dish", "Ingredients"]].reset_index(drop = True)
     return newdf
 
- def total_recipe_count_two1():
-    """Caleb - regex
-    Opens the recipes text file and reads through it. It then finds all the
-    the matches for the regular expression stated which grabs every line in the text file
-    and counts the number of matches.
+#def total_recipe_count_two1():
+   # """Caleb - regex
+   # Opens the recipes text file and reads through it. It then finds all the
+   # the matches for the regular expression stated which grabs every line in the text file
+   # and counts the number of matches.
     
-    returns:
-        (int): number of lines in the recipe text file indicating how many recipes are in it.
-    """
-    text = 'recipes.txt'
-    counter =0
-    with open(text) as rf:
-        counts = re.findall(".*[=].*", rf.read())
+   # returns:
+    #    (int): number of lines in the recipe text file indicating how many recipes are in it.
+    #"""
+    #text = 'recipes.txt'
+    #counter =0
+    #with open(text) as rf:
+    #    counts = re.findall(".*[=].*", rf.read())
        
-    return(len(counts))
+    #return(len(counts))
 
 def main(filepath):
     """Semhar - conditional expressions, with statement
