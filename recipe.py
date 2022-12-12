@@ -3,6 +3,7 @@ import seaborn as sns
 import pandas as pd
 import sys
 from argparse import ArgumentParser
+import random
 
 
 class Recipe: 
@@ -108,7 +109,9 @@ def allergies(recipelist, allergy):
             no_allergy.append(recipe)
         else:
             continue
-    return no_allergy
+    return (f"""Here are foods that don't contain {allergy}:
+            
+{no_allergy}""""")
 
 
 def get_data1(df):
@@ -269,7 +272,7 @@ def main(filepath):
             if ChooseLetter(recipelist, letter = starts.upper()) != []:
                 print(ChooseLetter(recipelist, letter = starts.upper()))
                 dish = input("""
-Select on of these dishes.
+Select a dish by typing it out exactly as it appears above.
                          """)
                 print(get_ingredients(dish, recipelist))
             else:
