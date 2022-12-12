@@ -260,8 +260,8 @@ def main(filepath):
             starts = input("""Enter the letter the dish starts with.
                            """)
             print(ChooseLetter(recipelist, letter = starts.upper()))
-            dish = input("""Select on of these dishes.
-                         """)
+            dish = input("""
+                         Select on of these dishes.""")
             print(get_ingredients(dish, recipelist))
             
         if question == "2":
