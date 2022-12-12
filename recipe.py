@@ -61,8 +61,8 @@ def match(recipelist, user_ing):
     textfile by implementing a set intersection and difference. 
             
     Args: 
-        recipeList (list) : stores list of recipes 
-        user_ing (set of strings) : contains user's ingredients  
+        recipelist (list) : stores list of recipes 
+        user_ing (str) : contains user's ingredients  
         
     Returns: 
          Either a dish name (str) that the user can make or a
