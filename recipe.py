@@ -66,8 +66,8 @@ def match(recipelist, user_ing):
         
     Returns: 
          Either a dish name (str) that the user can make or a
-         set of ingredients user still needs (if they have 4 of the necessary
-         ingredients) to complete a dish.
+         set of ingredients user still needs (if they have 2 or more of the 
+         necessary ingredients) to complete a dish.
     """
         
     user = user_ing.strip().split(",")
@@ -227,7 +227,8 @@ def get_ingredients(dishName, recipeLst):
     recipeLst(lst): list of the recipies with ingredients
     
     Return:
-    if the name is found in the list a f string will appear with Here are its ingredients with the ingredients following it.
+    if the name is found in the list a f string will appear with Here are its 
+    ingredients with the ingredients following it.
     """
     for recipe in recipeLst:
         if dishName == recipe.name:
@@ -279,7 +280,8 @@ Select a dish by typing it out exactly as it appears above.
                          """)
                 print(get_ingredients(dish, recipelist))
             else:
-                print(f"""Sorry, we don't have any foods that start with {starts.upper()} in our cookbook.""")
+                print(f"""Sorry, we don't have any foods that start with 
+                      {starts.upper()} in our cookbook.""")
             
         if question == "2":
             user_ing = input("""What ingredients do you have? (ex. milk,cheese)
