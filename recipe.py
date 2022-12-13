@@ -77,16 +77,18 @@ def match(recipelist, user_ing):
         
         rec_ing = set(r.ingredients)
         match = user_ingredients & rec_ing
-        
+    
          
         if match:
             if len(match) == len(rec_ing):
-                return (f"You can make {r.name}!")
-                    
-            if len(match) == 4: 
-                    return(f"""You still need {rec_ing - user_ingredients} to make
-                            {r.name}""")
-
+                return (f"""You can make {r.name}!
+                       """)
+            else:
+                if len(match) > 1: 
+                    return(f"""To make {r.name} you still need:
+{rec_ing - user_ingredients}
+    """)
+    
                
     
 def allergies(recipelist, allergy):
@@ -282,8 +284,9 @@ Select a dish by typing it out exactly as it appears above.
         if question == "2":
             user_ing = input("""What ingredients do you have? (ex. milk,cheese)
                              """).lower() 
-            print(match(recipelist,user_ing) if match(recipelist,user_ing)!= None 
-            else "Sorry, none of your ingredients are found in the any of our dishes.") 
+            print(match(recipelist,user_ing) if match(recipelist,user_ing)!= None
+                  else f"""
+Sorry, you don't have enough ingredients to make one of our dishes.""")
            
             
         if question == "3":
