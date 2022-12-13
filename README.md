@@ -1,5 +1,5 @@
 The way the program works, is that we run the program from the command line by
-typing: python3 recipe.py recipe.txt
+typing: python3 recipe.py recipes.txt
 
 The program runs and the options are presented to the user.
 
